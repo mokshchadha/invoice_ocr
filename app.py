@@ -105,7 +105,7 @@ def get_openai_response(client, file_data, user_prompt):
     })
 
     response = client.chat.completions.create(
-        model="gpt-4-vision-preview",
+        model="gpt-4o",
         messages=messages,
         max_tokens=500
     )
@@ -152,7 +152,7 @@ def main():
                 st.write(f"Number of pages: {file_data['page_count']}")
             
 
-            st.image(file_data['image'], caption="Document Preview", use_column_width=True)
+            st.image(file_data['image'], caption="Document Preview", use_container_width=True)
             
 
             if file_data['type'] == 'pdf':
