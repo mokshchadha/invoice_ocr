@@ -7,7 +7,7 @@ from PIL import Image
 import google.generativeai as genai
 from openai import OpenAI
 import base64
-import fitz  # PyMuPDF for PDF processing
+import fitz 
 import tempfile
 import io
 from prompts import prompts
@@ -25,7 +25,7 @@ def encode_image_to_base64(image):
     return base64.b64encode(buffered.getvalue()).decode('utf-8')
 
 def convert_pdf_page_to_image(page):
-    pix = page.get_pixmap(matrix=fitz.Matrix(300/72, 300/72))  # 300 DPI rendering
+    pix = page.get_pixmap(matrix=fitz.Matrix(300/72, 300/72))  
     img_data = pix.tobytes("png")
     return Image.open(io.BytesIO(img_data))
 
@@ -66,12 +66,11 @@ def process_uploaded_file(uploaded_file):
         }
 
 def get_gemini_response(model, input_prompt, file_data, user_prompt, document_type):
-    # Add meta prompt based on document type
     meta_prompt = ""
     if document_type == "Transporter Invoice":
-        meta_prompt = "fetch all the fields associated with transporter"
+        meta_prompt = prompts['transporter']
     else:   
-        meta_prompt = "fetch all the fields associated with supplier"
+        meta_prompt = prompts['supplier']
     
     content_parts = [
         f"{input_prompt}\n{meta_prompt}"
@@ -89,7 +88,6 @@ def get_gemini_response(model, input_prompt, file_data, user_prompt, document_ty
 def get_openai_response(client, file_data, user_prompt, document_type):
     base64_image = encode_image_to_base64(file_data['image'])
     
-    # Add meta prompt based on document type
     meta_prompt = ""
     if document_type == "Transporter Invoice":
         meta_prompt = prompts['transporter']
