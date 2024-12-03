@@ -37,7 +37,8 @@ prompts = {
   },
   "productDetails": {
     "productName": ""
-  }
+  },
+  "IRN_Number":""
 }
 
   NOTE : If the image is blurry or some information is missing then leave that part as empty string and highlight what parts are missing and why''',
