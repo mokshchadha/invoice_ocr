@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 prompts = {
-    'pippin': """You are an expert in processing documents associated with property and real-estate from the uploded document I want you to extract
+    'pippin_tax_assesment': """You are an expert in processing documents associated with property and real-estate from the uploded document I want you to extract
                 tax assesment and tax bill and present them in a json format like 
                 {
                     "tax_assesment":"",
@@ -104,8 +104,8 @@ def process_uploaded_file(uploaded_file):
 
 def get_gemini_response(model, input_prompt, file_data, user_prompt, document_type):
     meta_prompt = ""
-    if document_type == "Pippin Document":
-        meta_prompt = prompts['pippin']
+    if document_type == "Pippin Tax Assesment":
+        meta_prompt = prompts['pippin_tax_assesment']
     else:
         meta_prompt = prompts['generic']
     
@@ -126,8 +126,8 @@ def get_openai_response(client, file_data, user_prompt, document_type):
     base64_image = encode_image_to_base64(file_data['image'])
     
     meta_prompt = ""
-    if document_type == "Pippin Document":
-        meta_prompt = prompts['pippin']
+    if document_type == "Pippin Tax Assesment":
+        meta_prompt = prompts['pippin_tax_assesment']
     else:
         meta_prompt = prompts['generic']
     
@@ -170,7 +170,7 @@ def main():
         st.title("Document Type")
         document_type = st.radio(
             "Select Document Type",
-            ( "Generic Document",  "Pippin Document",),
+            ( "Generic Document",  "Pippin Tax Assesment",),
             help="Choose the type of document you're analyzing"
         )
     
