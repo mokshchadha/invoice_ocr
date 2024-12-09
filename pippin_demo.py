@@ -176,7 +176,7 @@ def main():
         st.title("Document Type")
         document_type = st.radio(
             "Select Document Type",
-            ("Generic Document", "Pippin Tax Assesment"),
+            ( "Pippin Tax Assesment", "Generic Document",),
             help="Choose the type of document you're analyzing"
         )
     
