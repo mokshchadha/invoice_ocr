@@ -8,11 +8,8 @@ import fitz
 import tempfile
 import io
 from dotenv import load_dotenv
-
-# Load environment variables
 load_dotenv()
 
-# Define prompts
 prompts = {
     'pippin_tax_assesment': """You are an expert in processing documents associated with property and real-estate from the uploded document I want you to extract
                 tax assesment and tax bill and present them in a json format like 
@@ -175,7 +172,6 @@ def main():
     """Main application function"""
     st.set_page_config(page_title="Document Analysis System")
     
-    # Sidebar configuration
     with st.sidebar:
         st.title("Document Type")
         document_type = st.radio(
@@ -186,7 +182,6 @@ def main():
     
     st.header("Document Analysis with AI")
 
-    # Initialize AI services
     try:
         gemini_model, openai_client = configure_ai_services()
     except Exception as e:
@@ -196,20 +191,17 @@ def main():
                  "2. Environment variables GOOGLE_API_KEY and OPENAI_API_KEY are set")
         return
 
-    # AI service selection
     ai_service = st.radio(
         "Select AI Service",
         ("Gemini Pro", "OpenAI GPT-4V"),
         help="Choose which AI service to use for document analysis"
     )
 
-    # Base prompt
     input_prompt = """
     You are an expert in analyzing documents, including invoices and other business documents. 
     Please analyze the provided document and answer questions based on its contents.
     """
    
-    # File upload
     uploaded_file = st.file_uploader(
         "Upload a document...", 
         type=["pdf", "jpg", "jpeg", "png"],
@@ -218,26 +210,21 @@ def main():
 
     if uploaded_file is not None:
         try:
-            # Process uploaded file
             file_data = process_uploaded_file(uploaded_file)
             
-            # Display file information
             st.write(f"File Type: {file_data['type'].upper()}")
             if file_data['type'] == 'pdf':
                 st.write(f"Number of pages: {file_data['page_count']}")
             
-            # Display document preview
             st.subheader("Document Preview")
             for i, image in enumerate(file_data['images']):
                 st.image(image, caption=f"Page {i+1}", use_container_width=True)
                 st.markdown("---")  # Add separator between pages
             
-            # Display extracted text for PDFs
             if file_data['type'] == 'pdf':
                 with st.expander("View Extracted Text"):
                     st.text(file_data['text'])
 
-            # Analysis section
             submit = st.button("Analyze Document")
 
             if submit:
