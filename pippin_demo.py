@@ -10,15 +10,16 @@ import io
 from dotenv import load_dotenv
 load_dotenv()
 
-# Updated prompts dictionary with generic analysis option
 prompts = {
-    'pippin': """Analyze this Pippin Document and extract key information including:
-    - Invoice number
-    - Date
-    - Transportation charges
-    - GST details
-    - Vehicle details
-    - Route information""",
+    'pippin': """You are an expert in processing documents associated with property and real-estate from the uploded document I want you to extract
+                tax assesment and tax bill and present them in a json format like 
+                {
+                    "tax_assesment":"",
+                    "tax_bill":""
+                }
+
+         if something is missing or blurry return empty string and a warning message for that particular field being unclear or missing
+    """,
     
     'generic': """Please analyze this document and extract all relevant information including:
     - Document type and purpose
