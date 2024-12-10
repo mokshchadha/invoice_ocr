@@ -50,13 +50,11 @@ def configure_ai_services():
         raise Exception(f"Failed to configure AI services: {str(e)}")
 
 def encode_image_to_base64(image):
-    """Convert PIL Image to base64 string"""
     buffered = io.BytesIO()
     image.save(buffered, format="PNG")
     return base64.b64encode(buffered.getvalue()).decode('utf-8')
 
 def convert_pdf_pages_to_images(pdf_document):
-    """Convert all pages of a PDF to images"""
     images = []
     for page_num in range(len(pdf_document)):
         page = pdf_document[page_num]
@@ -66,14 +64,12 @@ def convert_pdf_pages_to_images(pdf_document):
     return images
 
 def extract_text_from_pdf(pdf_document):
-    """Extract text from all pages of a PDF"""
     text = ""
     for page in pdf_document:
         text += page.get_text()
     return text
 
 def process_uploaded_file(uploaded_file):
-    """Process uploaded file and return relevant data"""
     if uploaded_file.type == "application/pdf":
         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
             tmp_file.write(uploaded_file.getvalue())
