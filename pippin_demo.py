@@ -11,32 +11,22 @@ from dotenv import load_dotenv
 load_dotenv()
 
 prompts = {
-    'pippin_tax_assesment': """You are an expert in processing documents associated with property and real-estate from the uploded document I want you to extract
-                tax assesment and tax bill and present them in a json format like 
+    'pippin_tax_assessment': """You are an expert in processing documents associated with property and real-estate from the uploded document I want you to extract
+                tax assessment and tax bill and present them in a json format like 
                 {
-                    "tax_assesment":"",
+                    "tax_assessment":"",
                     "tax_bill":""
                 }
 
          if something is missing or blurry return empty string and a warning message for that particular field being unclear or missing
     """,
     
-    'generic': """Please analyze this document and extract all relevant information including:
-    - Document type and purpose
-    - Key dates
-    - Important numbers and figures
-    - Significant parties involved
-    - Financial details if present
-    - Any special terms or conditions
-    - Notable observations or irregularities""",
+    'custom': "Fetch the comma separated values in json format, if the user asked field is not available or unclear return empty field with a user warning",
     
     'detailed': "Please provide a detailed line-by-line transcript of the document, capturing all text content, formatting, and structure as accurately as possible. Include any headers, sections, or special formatting you observe."
 }
 
 def get_api_key(key_name):
-    """
-    Try to get API key from Streamlit secrets first, then fall back to environment variables
-    """
     try:
         return st.secrets[key_name]
     except Exception:
@@ -115,14 +105,16 @@ def process_uploaded_file(uploaded_file):
             'page_count': 1
         }
 
-def get_gemini_response(model, input_prompt, file_data, user_prompt, document_type):
+def get_gemini_response(model, input_prompt, file_data, user_prompt, document_type, custom_input=""):
     """Get response from Gemini model"""
-    if document_type == "Pippin Tax Assesment":
-        meta_prompt = prompts['pippin_tax_assesment']
+    if document_type == "Pippin Tax Assessment":
+        meta_prompt = prompts['pippin_tax_assessment']
     elif document_type == "Detailed Transcript":
         meta_prompt = prompts['detailed']
+    elif document_type == "Custom":
+        meta_prompt = prompts['custom'] + " " + custom_input
     else:
-        meta_prompt = prompts['generic']
+        meta_prompt = prompts['custom']
     
     content_parts = [
         f"{input_prompt}\n{meta_prompt}"
@@ -137,16 +129,18 @@ def get_gemini_response(model, input_prompt, file_data, user_prompt, document_ty
     response = model.generate_content(content_parts)
     return response.text
 
-def get_openai_response(client, file_data, user_prompt, document_type):
+def get_openai_response(client, file_data, user_prompt, document_type, custom_input=""):
     """Get response from OpenAI model"""
     base64_image = encode_image_to_base64(file_data['first_image'])
     
-    if document_type == "Pippin Tax Assesment":
-        meta_prompt = prompts['pippin_tax_assesment']
+    if document_type == "Pippin Tax Assessment":
+        meta_prompt = prompts['pippin_tax_assessment']
     elif document_type == "Detailed Transcript":
         meta_prompt = prompts['detailed']
+    elif document_type == "Custom":
+        meta_prompt = prompts['custom'] + " " + custom_input
     else:
-        meta_prompt = prompts['generic']
+        meta_prompt = prompts['custom']
     
     messages = [
         {
@@ -188,11 +182,20 @@ def main():
         st.title("Document Type")
         document_type = st.radio(
             "Select Document Type",
-            ("Pippin Tax Assesment", "Generic Document", "Detailed Transcript"),
+            ("Custom", "Pippin Tax Assessment",  "Detailed Transcript"),
             help="Choose the type of document analysis you need"
         )
     
     st.header("Document Analysis with AI")
+
+    # Move custom input to main body
+    custom_input = ""
+    if document_type == "Custom":
+        st.subheader("Custom Analysis Configuration")
+        custom_input = st.text_area(
+            "Enter the fields you want to extract from the PDF (separate multiple fields by comma)",
+            help="This will be appended to the base prompt for custom analysis"
+        )
 
     try:
         gemini_model, openai_client = configure_ai_services()
@@ -243,9 +246,9 @@ def main():
                 try:
                     with st.spinner("Analyzing the document..."):
                         if ai_service == "Gemini Pro":
-                            response = get_gemini_response(gemini_model, input_prompt, file_data, "", document_type)
+                            response = get_gemini_response(gemini_model, input_prompt, file_data, "", document_type, custom_input)
                         else:   
-                            response = get_openai_response(openai_client, file_data, "", document_type)
+                            response = get_openai_response(openai_client, file_data, "", document_type, custom_input)
                         
                         st.subheader("Analysis Result")
                         st.write(response)
