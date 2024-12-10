@@ -164,7 +164,7 @@ def get_openai_response(client, file_data, user_prompt, document_type, custom_in
     })
 
     response = client.chat.completions.create(
-        model="gpt-4-vision-preview",
+        model="gpt-4-o",
         messages=messages,
         max_tokens=500
     )
@@ -203,7 +203,7 @@ def main():
 
     ai_service = st.radio(
         "Select AI Service",
-        ("Gemini Pro", "OpenAI GPT-4V"),
+        ("Gemini Pro", "OpenAI GPT-4o"),
         help="Choose which AI service to use for document analysis"
     )
 
