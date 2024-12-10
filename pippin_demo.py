@@ -28,7 +28,9 @@ prompts = {
     - Significant parties involved
     - Financial details if present
     - Any special terms or conditions
-    - Notable observations or irregularities"""
+    - Notable observations or irregularities""",
+    
+    'detailed': "Please provide a detailed line-by-line transcript of the document, capturing all text content, formatting, and structure as accurately as possible. Include any headers, sections, or special formatting you observe."
 }
 
 def get_api_key(key_name):
@@ -50,7 +52,7 @@ def configure_ai_services():
         openai_api_key = get_api_key("OPENAI_API_KEY")
         
         genai.configure(api_key=google_api_key)
-        gemini_model = genai.GenerativeModel('gemini-1.5-pro')
+        gemini_model = genai.GenerativeModel('gemini-1.5-pro-latest')
         openai_client = OpenAI(api_key=openai_api_key)
         
         return gemini_model, openai_client
@@ -97,7 +99,7 @@ def process_uploaded_file(uploaded_file):
         return {
             'type': 'pdf',
             'images': images,
-            'first_image': images[0],  # Keep first image for AI processing
+            'first_image': images[0],
             'text': text,
             'document': pdf_document,
             'page_count': page_count
@@ -115,7 +117,12 @@ def process_uploaded_file(uploaded_file):
 
 def get_gemini_response(model, input_prompt, file_data, user_prompt, document_type):
     """Get response from Gemini model"""
-    meta_prompt = prompts['pippin_tax_assesment'] if document_type == "Pippin Tax Assesment" else prompts['generic']
+    if document_type == "Pippin Tax Assesment":
+        meta_prompt = prompts['pippin_tax_assesment']
+    elif document_type == "Detailed Transcript":
+        meta_prompt = prompts['detailed']
+    else:
+        meta_prompt = prompts['generic']
     
     content_parts = [
         f"{input_prompt}\n{meta_prompt}"
@@ -134,7 +141,12 @@ def get_openai_response(client, file_data, user_prompt, document_type):
     """Get response from OpenAI model"""
     base64_image = encode_image_to_base64(file_data['first_image'])
     
-    meta_prompt = prompts['pippin_tax_assesment'] if document_type == "Pippin Tax Assesment" else prompts['generic']
+    if document_type == "Pippin Tax Assesment":
+        meta_prompt = prompts['pippin_tax_assesment']
+    elif document_type == "Detailed Transcript":
+        meta_prompt = prompts['detailed']
+    else:
+        meta_prompt = prompts['generic']
     
     messages = [
         {
@@ -176,8 +188,8 @@ def main():
         st.title("Document Type")
         document_type = st.radio(
             "Select Document Type",
-            ( "Pippin Tax Assesment", "Generic Document",),
-            help="Choose the type of document you're analyzing"
+            ("Pippin Tax Assesment", "Generic Document", "Detailed Transcript"),
+            help="Choose the type of document analysis you need"
         )
     
     st.header("Document Analysis with AI")
