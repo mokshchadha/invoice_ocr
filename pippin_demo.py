@@ -188,7 +188,6 @@ def main():
     
     st.header("Document Analysis with AI")
 
-    # Move custom input to main body
     custom_input = ""
     if document_type == "Custom":
         st.subheader("Custom Analysis Configuration")
@@ -234,7 +233,7 @@ def main():
             st.subheader("Document Preview")
             for i, image in enumerate(file_data['images']):
                 st.image(image, caption=f"Page {i+1}", use_container_width=True)
-                st.markdown("---")  # Add separator between pages
+                st.markdown("---")   
             
             if file_data['type'] == 'pdf':
                 with st.expander("View Extracted Text"):
