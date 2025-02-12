@@ -64,8 +64,8 @@ def configure_ai_services():
             'Gemini 1.5 Pro': ('google', genai.GenerativeModel('gemini-1.5-pro')),
             'Gemini 2.0 Flash': ('google', genai.GenerativeModel('gemini-2.0-flash')),
             'Gemini 2.0 Flash Lite': ('google', genai.GenerativeModel('gemini-2.0-flash-lite')),
-            'GPT-4': ('openai', 'gpt-4o'),
-            'GPT-4 Turbo': ('openai', 'gpt-4o')
+            'GPT-4o': ('openai', 'gpt-4o'),
+            'GPT-4o mini': ('openai', 'gpt-4o')
         }
         
         return models
