@@ -2,7 +2,7 @@ import os
 import streamlit as st
 from PIL import Image
 import google.generativeai as genai
-from openai import OpenAI
+import openai
 import base64
 import fitz 
 import tempfile
@@ -34,7 +34,9 @@ prompts = {
     - Significant parties involved
     - Financial details if present
     - Any special terms or conditions
-    - Notable observations or irregularities"""
+    - Notable observations or irregularities""",
+    
+    'custom': """Analyze this document according to the following instructions: in JSON format\n{} """
 }
 
 def get_api_key(key_name):
@@ -55,10 +57,18 @@ def configure_ai_services():
         openai_api_key = get_api_key("OPENAI_API_KEY")
         
         genai.configure(api_key=google_api_key)
-        gemini_model = genai.GenerativeModel('gemini-1.5-pro')
-        openai_client = OpenAI(api_key=openai_api_key)
+        openai.api_key = openai_api_key
         
-        return gemini_model, openai_client
+        # Initialize different models
+        models = {
+            'Gemini 1.5 Pro': ('google', genai.GenerativeModel('gemini-1.5-pro')),
+            'Gemini 2.0 Flash': ('google', genai.GenerativeModel('gemini-2.0-flash')),
+            'Gemini 2.0 Flash Lite': ('google', genai.GenerativeModel('gemini-2.0-flash-lite')),
+            'GPT-4': ('openai', 'gpt-4o'),
+            'GPT-4 Turbo': ('openai', 'gpt-4o')
+        }
+        
+        return models
     except Exception as e:
         raise Exception(f"Failed to configure AI services: {str(e)}")
 
@@ -108,70 +118,60 @@ def process_uploaded_file(uploaded_file):
             'page_count': 1
         }
 
-def get_gemini_response(model, input_prompt, file_data, user_prompt, document_type):
-    meta_prompt = ""
-    if document_type == "Transporter Invoice":
-        meta_prompt = prompts['transporter']
-    elif document_type == "Supplier Bill":
-        meta_prompt = prompts['supplier']
+def get_model_response(model_info, input_prompt, file_data, user_prompt, document_type, custom_prompt=""):
+    provider, model = model_info
+    
+    if document_type == "Document with Prompt":
+        meta_prompt = prompts['custom'].format(custom_prompt)
     else:
-        meta_prompt = prompts['generic']
+        meta_prompt = prompts.get(document_type.lower().replace(" ", ""), prompts['generic'])
     
-    content_parts = [
-        f"{input_prompt}\n{meta_prompt}"
-    ]
+    full_prompt = f"{input_prompt}\n{meta_prompt}"
     
-    if file_data['type'] == 'pdf':
-        content_parts.append(f"PDF Text Content:\n{file_data['text']}\n")
+    if provider == 'google':
+        content_parts = [full_prompt]
+        
+        if file_data['type'] == 'pdf':
+            content_parts.append(f"PDF Text Content:\n{file_data['text']}\n")
+        
+        content_parts.append(file_data['image'])
+        content_parts.append(user_prompt)
+        
+        response = model.generate_content(content_parts)
+        return response.text
     
-    content_parts.append(file_data['image'])
-    content_parts.append(user_prompt)
-    
-    response = model.generate_content(content_parts)
-    return response.text
-
-def get_openai_response(client, file_data, user_prompt, document_type):
-    base64_image = encode_image_to_base64(file_data['image'])
-    
-    meta_prompt = ""
-    if document_type == "Transporter Invoice":
-        meta_prompt = prompts['transporter']
-    elif document_type == "Supplier Bill":
-        meta_prompt = prompts['supplier']
-    else:
-        meta_prompt = prompts['generic']
-    
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text", 
-                    "text": f"Please analyze this document with the following context: {meta_prompt}\nQuestion: {user_prompt}"
-                }
-            ]
-        }
-    ]
-    
-    if file_data['type'] == 'pdf':
-        messages[0]["content"].append({
-            "type": "text",
-            "text": f"Document text content:\n{file_data['text']}"
-        })
-    
-    messages[0]["content"].append({
-        "type": "image_url",
-        "image_url": {
-            "url": f"data:image/png;base64,{base64_image}"
-        }
-    })
-
-    response = client.chat.completions.create(
-        model="gpt-4-vision-preview",
-        messages=messages,
-        max_tokens=500
-    )
-    return response.choices[0].message.content
+    else:  # OpenAI
+        messages = [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": full_prompt
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/jpeg;base64,{encode_image_to_base64(file_data['image'])}"
+                        }
+                    }
+                ]
+            }
+        ]
+        
+        if file_data['type'] == 'pdf':
+            messages[0]["content"].insert(1, {
+                "type": "text",
+                "text": f"PDF Text Content:\n{file_data['text']}\n"
+            })
+        
+        response = openai.chat.completions.create(
+            model=model,
+            messages=messages,
+            max_tokens=4096
+        )
+        
+        return response.choices[0].message.content
 
 def main():
     st.set_page_config(page_title="Document Analysis System")
@@ -180,14 +180,22 @@ def main():
         st.title("Document Type")
         document_type = st.radio(
             "Select Document Type",
-            ( "Generic Document","Supplier Bill",  "Transporter Invoice",),
+            ("Generic Document", "Supplier Bill", "Transporter Invoice", "Document with Prompt"),
             help="Choose the type of document you're analyzing"
         )
+        
+        custom_prompt = ""
+        if document_type == "Document with Prompt":
+            custom_prompt = st.text_area(
+                "Enter your custom analysis prompt",
+                help="Specify what information you want to extract or analyze from the document",
+                height=150
+            )
     
     st.header("Document Analysis with AI")
 
     try:
-        gemini_model, openai_client = configure_ai_services()
+        models = configure_ai_services()
     except Exception as e:
         st.error(f"Error initializing AI services: {str(e)}\n\n"
                  "Please ensure either:\n"
@@ -197,7 +205,7 @@ def main():
 
     ai_service = st.radio(
         "Select AI Service",
-        ("Gemini Pro", "OpenAI GPT-4V"),
+        list(models.keys()),
         help="Choose which AI service to use for document analysis"
     )
 
@@ -229,12 +237,20 @@ def main():
             submit = st.button("Analyze Document")
 
             if submit:
+                if document_type == "Document with Prompt" and not custom_prompt.strip():
+                    st.warning("Please enter a custom prompt before analyzing the document.")
+                    return
+                
                 try:
                     with st.spinner("Analyzing the document..."):
-                        if ai_service == "Gemini Pro":
-                            response = get_gemini_response(gemini_model, input_prompt, file_data, "", document_type)
-                        else:   
-                            response = get_openai_response(openai_client, file_data, "", document_type)
+                        response = get_model_response(
+                            models[ai_service],
+                            input_prompt,
+                            file_data,
+                            "",
+                            document_type,
+                            custom_prompt
+                        )
                         
                         st.subheader("Analysis Result")
                         st.write(response)
