@@ -1,0 +1,832 @@
+{
+  "file_1.pdf": {
+    "gemini-2.0-flash-lite": {
+      "vendorDetails": {
+        "vendorName": "Signet Industries Ltd. Pithampur",
+        "gstAvailability": "Yes",
+        "gstAmount": "1,78,200.00",
+        "gstInternalAmount": null,
+        "gst": "23AABCS3489F2ZD",
+        "address": "Plot No.462 to 465, 476 to 478,\nSector No. 3, Industrial Area,\nPithampur Dist Dhar"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PRIVATE LIMITED - INDORE",
+        "buyerGst": "23ABACS7251D1ZP"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "SIL2526/3090",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": "55491 C",
+        "totalAmount": "11,68,200.00",
+        "tcsAmount": null,
+        "quantity": "11.000",
+        "rate": "90,000.00"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PRIVATE LIMITED - INDORE",
+          "billToAddress": "2nd Floor, Scheme No. PU-4\nCommercial, Vijay Nagar, Plot No. B"
+        },
+        "shippingAddress": {
+          "shipToName": null,
+          "shipToAddress": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College\nRau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer\nHospital, Rau Depo, INDORE, MADHYA PRADESH, 453331."
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "MP09GE9708",
+        "loadingAddress": null
+      },
+      "productDetails": {
+        "productName": "HDPE"
+      },
+      "IRN_Number": "e36a3b4597407cec95240878aa10c315106927bd0a8d738cdec43861516c1002"
+    },
+    "gemini-2.0-flash": {
+      "vendorDetails": {
+        "vendorName": "Signet Industries Ltd. Pithampur",
+        "gstAvailability": "Yes",
+        "gstAmount": "1,78,200.00",
+        "gstInternalAmount": "89,100.00",
+        "gst": "23AABCS3489F2ZD",
+        "address": "Plot No.462 to 465, 476 to 478,\nSector No. 3, Industrial Area,\nPithampur Dist Dhar\nState Name: Madhya Pradesh, Code: 23"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PRIVATE LIMITED - INDORE",
+        "buyerGst": "23ABACS7251D1ZP"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "SIL2526/3090",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": "55491 C",
+        "totalAmount": "11,68,200.00",
+        "tcsAmount": null,
+        "quantity": "11.000",
+        "rate": "90,000.00"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PRIVATE LIMITED - INDORE",
+          "billToAddress": "2nd Floor, Scheme No. PU-4\nCommercial, Vijay Nagar, Plot No. B"
+        },
+        "shippingAddress": {
+          "shipToName": null,
+          "shipToAddress": null
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "MP09GE9708",
+        "loadingAddress": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College\nRau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer\nHospital, Rau Depo, INDORE, MADHYA PRADESH, 453331."
+      },
+      "productDetails": {
+        "productName": "HDPE"
+      },
+      "IRN_Number": "e36a3b4597407cec95240878aa10c315106927bd0a8d738cdec43861516c1002"
+    },
+    "gemini-2.5-flash": {
+      "vendorDetails": {
+        "vendorName": "Signet Industries Ltd. Pithampur",
+        "gstAvailability": "Yes",
+        "gstAmount": "1,78,200.00",
+        "gstInternalAmount": "89,100.00",
+        "gst": "23AABCS3489F2ZD",
+        "address": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar, Madhya Pradesh, Code: 23"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PRIVATE LIMITED - INDORE",
+        "buyerGst": "23ABACS7251D1ZP"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "SIL2526/3090",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": "55491 C",
+        "totalAmount": "11,68,200.00",
+        "tcsAmount": "",
+        "quantity": "11.000 Mt",
+        "rate": "90,000.00"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PRIVATE LIMITED - INDORE",
+          "billToAddress": "2nd Floor, Scheme No. PU-4, Commercial, Vijay Nagar, Plot No. B, Indore, Madhya Pradesh, Code: 23"
+        },
+        "shippingAddress": {
+          "shipToName": "",
+          "shipToAddress": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College, Rau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer Hospital, Rau Depo, INDORE, MADHYA PRADESH, 453331."
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "MP09GE9708",
+        "loadingAddress": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College, Rau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer Hospital, Rau Depo, INDORE, MADHYA PRADESH, 453331."
+      },
+      "productDetails": {
+        "productName": "HDPE \"010DP45\""
+      },
+      "IRN_Number": "e36a3b4597407cec95240878aa10c315106927bd0a8d738cdec43861516c1002"
+    },
+    "gemini-2.5-pro": {
+      "vendorDetails": {
+        "vendorName": "Signet Industries Ltd. Pithampur",
+        "gstAvailability": "Yes",
+        "gstAmount": "1,78,200.00",
+        "gstInternalAmount": "178200.00",
+        "gst": "23AABCS3489F2ZD",
+        "address": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PRIVATE LIMITED - INDORE",
+        "buyerGst": "23ABACS7251D1ZP"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "SIL2526/3090",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": "55491 C",
+        "totalAmount": "11,68,200.00",
+        "tcsAmount": "",
+        "quantity": "11.000",
+        "rate": "90,000.00"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PRIVATE LIMITED - INDORE",
+          "billToAddress": "2nd Floor, Scheme No. PU-4 Commercial, Vijay Nagar, Plot No. B"
+        },
+        "shippingAddress": {
+          "shipToName": "SPCX PRIVATE LIMITED - INDORE",
+          "shipToAddress": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College Rau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer Hospital, Rau Depo, INDORE, MADHYA PRADESH, 453331."
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "MP09GE9708",
+        "loadingAddress": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar"
+      },
+      "productDetails": {
+        "productName": "HDPE \"010DP45\""
+      },
+      "IRN_Number": "e36a3b4597407cec95240878aa10c315106927bd0a8d738cdec43861516c1002"
+    }
+  },
+  "file_10.pdf": {
+    "gemini-2.0-flash-lite": {
+      "vendorDetails": {
+        "vendorName": "Servo Plastics Private Limited",
+        "gstAvailability": "Yes",
+        "gstAmount": "2,04,120.00",
+        "gstInternalAmount": null,
+        "gst": "19AANCS3318K1ZW",
+        "address": "1, D'Cruze Garden Lane, P.O. Mallickpara\nSerampore, Dist. Hooghly\nPIN Code 712203, West Bengal"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PVT LTD",
+        "buyerGst": "19ABACS7251D1ZE"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "SPPL/25-26/1009",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": "55537",
+        "totalAmount": "13,38,120.00",
+        "tcsAmount": null,
+        "quantity": "12,000.000",
+        "rate": "94.50"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PVT LTD",
+          "billToAddress": "4th floor, 8/1A Shri Manjari Building,\nSir William Jones Sarani, Kolkata, West Bengal 700071"
+        },
+        "shippingAddress": {
+          "shipToName": null,
+          "shipToAddress": "Kolkata"
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "WB11G5411",
+        "loadingAddress": null
+      },
+      "productDetails": {
+        "productName": "Polypropylene"
+      },
+      "IRN_Number": "11febf9a75f9a3210d7f0c790a202ae05d21601d04d1690529-"
+    },
+    "gemini-2.0-flash": {
+      "vendorDetails": {
+        "vendorName": "Servo Plastics Private Limited",
+        "gstAvailability": "Yes",
+        "gstAmount": "2,04,120.00",
+        "gstInternalAmount": "1,02,060.00",
+        "gst": "19AANCS3318K1ZW",
+        "address": "1, D'Cruze Garden Lane, P.O. Mallickpara\nSerampore, Dist. Hooghly\nPIN Code 712203, West Bengal"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PVT LTD",
+        "buyerGst": "19ABACS7251D1ZE"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "SPPL/25-26/1009",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": "55537",
+        "totalAmount": "13,38,120.00",
+        "tcsAmount": null,
+        "quantity": "12,000.000",
+        "rate": "94.50"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PVT LTD",
+          "billToAddress": "4th floor, 8/1A Shri Manjari Building,\nSir William Jones Sarani, Kolkata, West Bengal 700071"
+        },
+        "shippingAddress": {
+          "shipToName": "Kolkata",
+          "shipToAddress": "Kolkata"
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "WB11G5411",
+        "loadingAddress": "Ex-Serampore Factory"
+      },
+      "productDetails": {
+        "productName": "Polypropylene"
+      },
+      "IRN_Number": "11febf9a75f9a3210d7f0c790a202ae05d21601d04d1690529-\n20e9f463bf68bb"
+    },
+    "gemini-2.5-flash": {
+      "vendorDetails": {
+        "vendorName": "Servo Plastics Private Limited",
+        "gstAvailability": "Yes",
+        "gstAmount": "2,04,120.00",
+        "gstInternalAmount": "11,34,000.00",
+        "gst": "19AANCS3318K1ZW",
+        "address": "1, D'Cruze Garden Lane, P.O. Mallickpara Serampore, Dist. Hooghly PIN Code 712203, West Bengal"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PVT LTD",
+        "buyerGst": "19ABACS7251D1ZE"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "SPPL/25-26/1009",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": "55537",
+        "totalAmount": "13,38,120.00",
+        "tcsAmount": "",
+        "quantity": "12,000.000 Kgs.",
+        "rate": "94.50"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PVT LTD",
+          "billToAddress": "4th floor, 8/1A Shri Manjari Building, Sir William Jones Sarani, Kolkata, West Bengal 700071"
+        },
+        "shippingAddress": {
+          "shipToName": "",
+          "shipToAddress": ""
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "WB11G5411",
+        "loadingAddress": "Ex-Serampore Factory"
+      },
+      "productDetails": {
+        "productName": "Polypropylene (39021000)"
+      },
+      "IRN_Number": "11febf9a75f9a3210d7f0c790a202ae05d21601d04d1690529-20e9f463bf68bb"
+    },
+    "gemini-2.5-pro": {
+      "vendorDetails": {
+        "vendorName": "Servo Plastics Private Limited",
+        "gstAvailability": "Yes",
+        "gstAmount": "2,04,120.00",
+        "gstInternalAmount": "2,04,120.00",
+        "gst": "19AANCS3318K1ZW",
+        "address": "1, D'Cruze Garden Lane, P.O. Mallickpara Serampore, Dist. Hooghly PIN Code 712203, West Bengal"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PVT LTD",
+        "buyerGst": "19ABACS7251D1ZE"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "SPPL/25-26/1009",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": "55537",
+        "totalAmount": "13,38,120.00",
+        "tcsAmount": "",
+        "quantity": "12,000.000",
+        "rate": "94.50"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PVT LTD",
+          "billToAddress": "4th floor, 8/1A Shri Manjari Building, Sir William Jones Sarani, Kolkata, West Bengal 700071"
+        },
+        "shippingAddress": {
+          "shipToName": "",
+          "shipToAddress": ""
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "WB11G5411",
+        "loadingAddress": "Ex-Serampore Factory"
+      },
+      "productDetails": {
+        "productName": "Polypropylene (39021000)"
+      },
+      "IRN_Number": "11febf9a75f9a3210d7f0c790a202ae05d21601d04d1690529-20e9f463bf68bb"
+    }
+  },
+  "file_100.pdf": {
+    "gemini-2.0-flash-lite": {
+      "vendorDetails": {
+        "vendorName": "SPCX PVT LTD",
+        "gstAvailability": "true",
+        "gstAmount": "1,50,400.80",
+        "gstInternalAmount": null,
+        "gst": "27ABACS7251D1ZH",
+        "address": "Survey No. 692A/3C, 1St Floor Duggal Plaza\nPrem Nagar, Bibwewadi\nPUNE, Maharashtra411037"
+      },
+      "buyerDetails": {
+        "buyerName": "GURUKRUPA PET PROFILES LLP",
+        "buyerGst": "26ABAFG6348N1Z0"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "SPCXMH2526-2172",
+        "invoiceDate": "20/08/2025",
+        "poNumber": null,
+        "totalAmount": "9,85,961.00",
+        "tcsAmount": null,
+        "quantity": "9,900.000",
+        "rate": "84.40"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "GURUKRUPA PET PROFILES LLP",
+          "billToAddress": "New Survey No.2604, 378/1/3/Plot No.1, Premium Industrial Estate,\nNear Naroli Check Post, Naroli Check Post, Village Naroli\nDadra And Nagar Haveli\n396235 Dadra and Nagar Haveli and Daman and Diu"
+        },
+        "shippingAddress": {
+          "shipToName": null,
+          "shipToAddress": null
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": null,
+        "loadingAddress": null
+      },
+      "productDetails": {
+        "productName": "PET WANKAI WK801"
+      },
+      "IRN_Number": "c6468de3a49a5b259fcdf41e0c89b2837f798382b63cb6caf106cd69aa2ad930"
+    },
+    "gemini-2.0-flash": {
+      "vendorDetails": {
+        "vendorName": "SPCX PVT LTD",
+        "gstAvailability": "Yes",
+        "gstAmount": "1,50,400.80",
+        "gstInternalAmount": null,
+        "gst": "27ABACS7251D1ZH",
+        "address": "Survey No. 692A/3C, 1St Floor Duggal Plaza\nPrem Nagar, Bibwewadi\nPUNE, Maharashtra411037"
+      },
+      "buyerDetails": {
+        "buyerName": "GURUKRUPA PET PROFILES LLP",
+        "buyerGst": "26ABAFG6348N1Z0"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "SPCXMH2526-2172",
+        "invoiceDate": "20/08/2025",
+        "poNumber": null,
+        "totalAmount": "9,85,961.00",
+        "tcsAmount": null,
+        "quantity": "9,900.000",
+        "rate": "84.40"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "GURUKRUPA PET PROFILES LLP",
+          "billToAddress": "New Survey No.2604, 378/1/3/Plot No.1, Premium Industrial Estate,\nNear Naroli Check Post, Naroli Check Post, Village Naroli\nDadra And Nagar Haveli\n396235 Dadra and Nagar Haveli and Daman and Diu"
+        },
+        "shippingAddress": {
+          "shipToName": null,
+          "shipToAddress": null
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": null,
+        "loadingAddress": null
+      },
+      "productDetails": {
+        "productName": "PET WANKAI WK801"
+      },
+      "IRN_Number": "c6468de3a49a5b259fcdf41e0c89b2837f798382b63cb6caf106cd69aa2ad930"
+    },
+    "gemini-2.5-flash": {
+      "vendorDetails": {
+        "vendorName": "SPCX PVT LTD",
+        "gstAvailability": "Yes",
+        "gstAmount": "1,50,400.80",
+        "gstInternalAmount": "",
+        "gst": "27ABACS7251D1ZH",
+        "address": "Survey No. 692A/3C, 1St Floor Duggal Plaza Prem Nagar, Bibwewadi PUNE, Maharashtra411037"
+      },
+      "buyerDetails": {
+        "buyerName": "GURUKRUPA PET PROFILES LLP",
+        "buyerGst": "26ABAFG6348N1Z0"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "SPCXMH2526-2172",
+        "invoiceDate": "20/08/2025",
+        "poNumber": "",
+        "totalAmount": "9,85,961.00",
+        "tcsAmount": "",
+        "quantity": "9,900.000 KGS",
+        "rate": "84.40"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "GURUKRUPA PET PROFILES LLP",
+          "billToAddress": "New Survey No.2604, 378/1/3/Plot No.1, Premium Industrial Estate, Near Naroli Check Post, Naroli Check Post, Village Naroli Dadra And Nagar Haveli 396235 Dadra and Nagar Haveli and Daman and Diu"
+        },
+        "shippingAddress": {
+          "shipToName": "",
+          "shipToAddress": ""
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "",
+        "loadingAddress": ""
+      },
+      "productDetails": {
+        "productName": "PET WANKAI WK801"
+      },
+      "IRN_Number": "c6468de3a49a5b259fcdf41e0c89b2837f798382b63cb6caf106cd69aa2ad930"
+    },
+    "gemini-2.5-pro": {
+      "vendorDetails": {
+        "vendorName": "SPCX PVT LTD",
+        "gstAvailability": "true",
+        "gstAmount": "1,50,400.80",
+        "gstInternalAmount": null,
+        "gst": "27ABACS7251D1ZH",
+        "address": "Survey No. 692A/3C, 1St Floor Duggal Plaza Prem Nagar, Bibwewadi PUNE, Maharashtra411037"
+      },
+      "buyerDetails": {
+        "buyerName": "GURUKRUPA PET PROFILES LLP",
+        "buyerGst": "26ABAFG6348N1Z0"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "MHCN/2526-129",
+        "invoiceDate": "22/08/2025",
+        "poNumber": null,
+        "totalAmount": "9,85,961.00",
+        "tcsAmount": null,
+        "quantity": "9,900.000",
+        "rate": "84.40"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "GURUKRUPA PET PROFILES LLP",
+          "billToAddress": "New Survey No.2604, 378/1/3/Plot No.1, Premium Industrial Estate, Near Naroli Check Post, Naroli Check Post, Village Naroli Dadra And Nagar Haveli 396235 Dadra and Nagar Haveli and Daman and Diu"
+        },
+        "shippingAddress": {
+          "shipToName": "",
+          "shipToAddress": ""
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "",
+        "loadingAddress": ""
+      },
+      "productDetails": {
+        "productName": "PET WANKAI WK801"
+      },
+      "IRN_Number": "c6468de3a49a5b259fcdf41e0c89b2837f798382b63cb6caf106cd69aa2ad930"
+    }
+  },
+  "file_11.pdf": {
+    "gemini-2.0-flash-lite": {
+      "vendorDetails": {
+        "vendorName": "Kanpur Packagers Pvt. Ltd.",
+        "gstAvailability": "09AABCK5998F1Z2",
+        "gstAmount": null,
+        "gstInternalAmount": null,
+        "gst": "09ABACS7251D1ZF",
+        "address": "15/260-A-CIVIL LINES KANPUR"
+      },
+      "buyerDetails": {
+        "buyerName": "M/s SPCX PRIVATE LIMITED-NOIDA",
+        "buyerGst": "09ABACS7251D1ZF"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "GSTI/1763",
+        "invoiceDate": "26/08/2025",
+        "poNumber": null,
+        "totalAmount": "3150600.00",
+        "tcsAmount": null,
+        "quantity": "30000.000",
+        "rate": "89.00"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "M/s SPCX PRIVATE LIMITED-NOIDA",
+          "billToAddress": "2nd Floor, Space / Unit No 34, Wave Silver Tower, Plot No D-6, Noida, Gautambuddha Nagar, GAUTAMBUDH NAGAR"
+        },
+        "shippingAddress": {
+          "shipToName": "Ex-Godown",
+          "shipToAddress": "Kanpur"
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "UP95T3667",
+        "loadingAddress": "Loading Point 622 Panki site No. 1. Panki-Kaupus-208022"
+      },
+      "productDetails": {
+        "productName": "LLDPE-T"
+      },
+      "IRN_Number": "03191b4d000d4d1a9139e3c354027b92b01926d1ce049991889459cbf1f16fd1"
+    },
+    "gemini-2.0-flash": {
+      "vendorDetails": {
+        "vendorName": "Kanpur Packagers Pvt. Ltd.",
+        "gstAvailability": "Yes",
+        "gstAmount": "480600.00",
+        "gstInternalAmount": "240300.00",
+        "gst": "09AABCK5998F1Z2",
+        "address": "Regd. Office: 15/260-A-CIVIL LINES KANPUR"
+      },
+      "buyerDetails": {
+        "buyerName": "M/s SPCX PRIVATE LIMITED-NOIDA",
+        "buyerGst": "09ABACS7251D1ZF"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "GSTI/1763",
+        "invoiceDate": "26/08/2025",
+        "poNumber": null,
+        "totalAmount": "3150600.00",
+        "tcsAmount": null,
+        "quantity": "30000.000",
+        "rate": "89.00"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "M/s SPCX PRIVATE LIMITED-NOIDA",
+          "billToAddress": "2nd Floor, Space / Unit No 34, Wave Silver\nTower, Plot No D-6, Noida, Gautambuddha\nNagar,\nGAUTAMBUDH NAGAR"
+        },
+        "shippingAddress": {
+          "shipToName": null,
+          "shipToAddress": "Ex-Godown\nKanpur"
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "UP95T3667",
+        "loadingAddress": "Loading Point G.22 Panki site No. 1\nPanki-Kaupus-208022"
+      },
+      "productDetails": {
+        "productName": "LLDPE-T"
+      },
+      "IRN_Number": "03191b4d000d4d1a9139e3c354027b92b01926d1ce049991889459cbf1f16fd1"
+    },
+    "gemini-2.5-flash": {
+      "vendorDetails": {
+        "vendorName": "Kanpur Packagers Pvt. Ltd.",
+        "gstAvailability": "Yes",
+        "gstAmount": "480600.00",
+        "gstInternalAmount": "",
+        "gst": "09AABCK5998F1Z2",
+        "address": "15/260-A-CIVIL LINES KANPUR"
+      },
+      "buyerDetails": {
+        "buyerName": "M/s SPCX PRIVATE LIMITED-NOIDA",
+        "buyerGst": "09ABACS7251D1ZF"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "GSTI/1763",
+        "invoiceDate": "26/08/2025",
+        "poNumber": "",
+        "totalAmount": "3150600.00",
+        "tcsAmount": "",
+        "quantity": "30000.000",
+        "rate": "89.00"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "M/s SPCX PRIVATE LIMITED-NOIDA",
+          "billToAddress": "2nd Floor, Space / Unit No 34, Wave Silver Tower, Plot No D-6, Noida, Gautambuddha Nagar, GAUTAMBUDH NAGAR"
+        },
+        "shippingAddress": {
+          "shipToName": "",
+          "shipToAddress": "Ex-Godown Kanpur"
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "UP95T3667",
+        "loadingAddress": "Loading Point G22 Panki site No. 1. Panki-Kaupus-208022"
+      },
+      "productDetails": {
+        "productName": "LLDPE-T"
+      },
+      "IRN_Number": "03191b4d000d4d1a9139e3c354027b92b01926d1ce049991889459cbf1f16fd1"
+    },
+    "gemini-2.5-pro": {
+      "vendorDetails": {
+        "vendorName": "Kanpur Packagers Pvt. Ltd.",
+        "gstAvailability": "Yes",
+        "gstAmount": "480600.00",
+        "gstInternalAmount": "480600.00",
+        "gst": "09AABCK5998F1Z2",
+        "address": "Regd. Office: 15/260-A-CIVIL LINES KANPUR"
+      },
+      "buyerDetails": {
+        "buyerName": "M/s SPCX PRIVATE LIMITED- NOIDA",
+        "buyerGst": "09ABACS7251D1ZF"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "GSTI/1763",
+        "invoiceDate": "26/08/2025",
+        "poNumber": "",
+        "totalAmount": "3150600.00",
+        "tcsAmount": "",
+        "quantity": "30000.000",
+        "rate": "89.00"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "M/s SPCX PRIVATE LIMITED- NOIDA",
+          "billToAddress": "2nd Floor, Space / Unit No 34, Wave Silver Tower, Plot No D-6, Noida, Gautambuddha Nagar, GAUTAMBUDH NAGAR"
+        },
+        "shippingAddress": {
+          "shipToName": "Ex-Godown Kanpur",
+          "shipToAddress": "Ex-Godown Kanpur"
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "UP95T3667",
+        "loadingAddress": "Loading Point G22 Panki site No. 1. Panki-Kanpur-208022"
+      },
+      "productDetails": {
+        "productName": "LLDPE-T"
+      },
+      "IRN_Number": "03191b4d000d4d1a9139e3c354027b92b01926d1ce049991889459cbf1f16fd1"
+    }
+  },
+  "file_12.pdf": {
+    "gemini-2.0-flash-lite": {
+      "vendorDetails": {
+        "vendorName": "PANNALAL MAHESH CHANDRA",
+        "gstAvailability": "Yes",
+        "gstAmount": "1,93,860.00",
+        "gstInternalAmount": null,
+        "gst": "09AADFP9974F1ZP",
+        "address": "OFFICE -60/52 NAYAGANJ KANPUR\nGODOWN 192-B, DADA NAGAR\nKANPUR NAGAR-208022"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PRIVATE LIMITED",
+        "buyerGst": "09ABACS7251D1ZF"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "P-3641/25-26",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": null,
+        "totalAmount": "12,70,860.00",
+        "tcsAmount": null,
+        "quantity": "12,000.00 KG",
+        "rate": "89.75"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PRIVATE LIMITED",
+          "billToAddress": "2nd Floor, Space / Unit No 34, Wave Silver\nTower, Sector 18, Plot No D-6, Noida,\nGautambuddha Nagar, Uttar Pradesh,\n201301"
+        },
+        "shippingAddress": {
+          "shipToName": "SPCX PRIVATE LIMITED",
+          "shipToAddress": "EX-GODOWN"
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "UP78JN7625",
+        "loadingAddress": "KANPUR"
+      },
+      "productDetails": {
+        "productName": "LLDPE (F0120L)"
+      },
+      "IRN_Number": "21a660feada474f799328bf6764647b32e23d0b68c3-"
+    },
+    "gemini-2.0-flash": {
+      "vendorDetails": {
+        "vendorName": "PANNALAL MAHESH CHANDRA",
+        "gstAvailability": "Yes",
+        "gstAmount": "1,93,860.00",
+        "gstInternalAmount": "96,930.00",
+        "gst": "09AADFP9974F1ZP",
+        "address": "OFFICE -60/52 NAYAGANJ KANPUR\nGODOWN 192-B, DADA NAGAR\nKANPUR NAGAR-208022\nUttar Pradesh"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PRIVATE LIMITED",
+        "buyerGst": "09ABACS7251D1ZF"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "P-3641/25-26",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": null,
+        "totalAmount": "12,70,860.00",
+        "tcsAmount": null,
+        "quantity": "12,000.00",
+        "rate": "89.75"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PRIVATE LIMITED",
+          "billToAddress": "2nd Floor, Space / Unit No 34, Wave Silver\nTower, Sector 18, Plot No D-6, Noida,\nGautambuddha Nagar, Uttar Pradesh,\n201301"
+        },
+        "shippingAddress": {
+          "shipToName": "SPCX PRIVATE LIMITED",
+          "shipToAddress": "EX-GODOWN"
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "UP78JN7625",
+        "loadingAddress": "KANPUR"
+      },
+      "productDetails": {
+        "productName": "LLDPE (F0120L)"
+      },
+      "IRN_Number": "21a660feada474f799328bf6764647b32e23d0b68c3-\nd7611468b50ec5af8abaa"
+    },
+    "gemini-2.5-flash": {
+      "vendorDetails": {
+        "vendorName": "PANNALAL MAHESH CHANDRA",
+        "gstAvailability": "Yes",
+        "gstAmount": "1,93,860.00",
+        "gstInternalAmount": "",
+        "gst": "09AADFP9974F1ZP",
+        "address": "OFFICE -60/52 NAYAGANJ KANPUR GODOWN 192-B, DADA NAGAR KANPUR NAGAR-208022"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PRIVATE LIMITED",
+        "buyerGst": "09ABACS7251D1ZF"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "P-3641/25-26",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": "",
+        "totalAmount": "12,70,860.00",
+        "tcsAmount": "",
+        "quantity": "12,000.00 KG",
+        "rate": "89.75"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PRIVATE LIMITED",
+          "billToAddress": "2nd Floor, Space / Unit No 34, Wave Silver Tower, Sector 18, Plot No D-6, Noida, Gautambuddha Nagar, Uttar Pradesh, 201301"
+        },
+        "shippingAddress": {
+          "shipToName": "SPCX PRIVATE LIMITED",
+          "shipToAddress": "EX-GODOWN KANPUR Uttar Pradesh 208022"
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "UP78JN7625",
+        "loadingAddress": "192 B DADA, NAGAR, KANPUR KANPUR Uttar Pradesh 208022"
+      },
+      "productDetails": {
+        "productName": "LLDPE (F0120L)"
+      },
+      "IRN_Number": "21a660feada474f799328bf6764647b32e23d0b68c3-d7611468b50ec5af8abaa"
+    },
+    "gemini-2.5-pro": {
+      "vendorDetails": {
+        "vendorName": "PANNALAL MAHESH CHANDRA",
+        "gstAvailability": "Yes",
+        "gstAmount": "1,93,860.00",
+        "gstInternalAmount": "1,93,860.00",
+        "gst": "09AADFP9974F1ZP",
+        "address": "OFFICE -60/52 NAYAGANJ KANPUR GODOWN 192-B, DADA NAGAR KANPUR NAGAR-208022"
+      },
+      "buyerDetails": {
+        "buyerName": "SPCX PRIVATE LIMITED",
+        "buyerGst": "09ABACS7251D1ZF"
+      },
+      "invoiceDetails": {
+        "invoiceNumber": "P-3641/25-26",
+        "invoiceDate": "26-Aug-25",
+        "poNumber": "",
+        "totalAmount": "12,70,860.00",
+        "tcsAmount": "",
+        "quantity": "12,000.00",
+        "rate": "89.75"
+      },
+      "addressDetails": {
+        "billingAddress": {
+          "billToName": "SPCX PRIVATE LIMITED",
+          "billToAddress": "2nd Floor, Space / Unit No 34, Wave Silver Tower, Sector 18, Plot No D-6, Noida, Gautambuddha Nagar, Uttar Pradesh, 201301"
+        },
+        "shippingAddress": {
+          "shipToName": "SPCX PRIVATE LIMITED",
+          "shipToAddress": "EX-GODOWN KANPUR Uttar Pradesh 208022"
+        }
+      },
+      "transportDetails": {
+        "vehicleNumber": "UP78JN7625",
+        "loadingAddress": "192 B DADA, NAGAR, KANPUR KANPUR Uttar Pradesh 208022"
+      },
+      "productDetails": {
+        "productName": "LLDPE (F0120L)"
+      },
+      "IRN_Number": "21a660feada474f799328bf6764647b32e23d0b68c3-d7611468b50ec5af8abaa"
+    }
+  }
+}

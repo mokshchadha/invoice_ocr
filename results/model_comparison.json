@@ -1,0 +1,627 @@
+{
+  "sourceOfTruth": "gemini-2.5-pro",
+  "analysis": {
+    "file_1.pdf": {
+      "sourceOfTruthHasError": false,
+      "modelComparisons": {
+        "gemini-2.0-flash-lite": {
+          "hasError": false,
+          "matchingFields": 15,
+          "totalFields": 31,
+          "missingFields": [
+            "vendorDetails.gstInternalAmount",
+            "invoiceDetails.tcsAmount",
+            "addressDetails.shippingAddress.shipToName",
+            "transportDetails.loadingAddress"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.address",
+              "modelValue": "Plot No.462 to 465, 476 to 478,\nSector No. 3, Industrial Area,\nPithampur Dist Dhar",
+              "truthValue": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToAddress",
+              "modelValue": "2nd Floor, Scheme No. PU-4\nCommercial, Vijay Nagar, Plot No. B",
+              "truthValue": "2nd Floor, Scheme No. PU-4 Commercial, Vijay Nagar, Plot No. B"
+            },
+            {
+              "field": "addressDetails.shippingAddress.shipToAddress",
+              "modelValue": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College\nRau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer\nHospital, Rau Depo, INDORE, MADHYA PRADESH, 453331.",
+              "truthValue": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College Rau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer Hospital, Rau Depo, INDORE, MADHYA PRADESH, 453331."
+            },
+            {
+              "field": "productDetails.productName",
+              "modelValue": "HDPE",
+              "truthValue": "HDPE \"010DP45\""
+            }
+          ],
+          "accuracy": 48.38709677419355
+        },
+        "gemini-2.0-flash": {
+          "hasError": false,
+          "matchingFields": 15,
+          "totalFields": 31,
+          "missingFields": [
+            "invoiceDetails.tcsAmount",
+            "addressDetails.shippingAddress.shipToName",
+            "addressDetails.shippingAddress.shipToAddress"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.gstInternalAmount",
+              "modelValue": "89,100.00",
+              "truthValue": "178200.00"
+            },
+            {
+              "field": "vendorDetails.address",
+              "modelValue": "Plot No.462 to 465, 476 to 478,\nSector No. 3, Industrial Area,\nPithampur Dist Dhar\nState Name: Madhya Pradesh, Code: 23",
+              "truthValue": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToAddress",
+              "modelValue": "2nd Floor, Scheme No. PU-4\nCommercial, Vijay Nagar, Plot No. B",
+              "truthValue": "2nd Floor, Scheme No. PU-4 Commercial, Vijay Nagar, Plot No. B"
+            },
+            {
+              "field": "transportDetails.loadingAddress",
+              "modelValue": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College\nRau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer\nHospital, Rau Depo, INDORE, MADHYA PRADESH, 453331.",
+              "truthValue": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar"
+            },
+            {
+              "field": "productDetails.productName",
+              "modelValue": "HDPE",
+              "truthValue": "HDPE \"010DP45\""
+            }
+          ],
+          "accuracy": 48.38709677419355
+        },
+        "gemini-2.5-flash": {
+          "hasError": false,
+          "matchingFields": 16,
+          "totalFields": 31,
+          "missingFields": [
+            "addressDetails.shippingAddress.shipToName"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.gstInternalAmount",
+              "modelValue": "89,100.00",
+              "truthValue": "178200.00"
+            },
+            {
+              "field": "vendorDetails.address",
+              "modelValue": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar, Madhya Pradesh, Code: 23",
+              "truthValue": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar"
+            },
+            {
+              "field": "invoiceDetails.quantity",
+              "modelValue": "11.000 Mt",
+              "truthValue": "11.000"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToAddress",
+              "modelValue": "2nd Floor, Scheme No. PU-4, Commercial, Vijay Nagar, Plot No. B, Indore, Madhya Pradesh, Code: 23",
+              "truthValue": "2nd Floor, Scheme No. PU-4 Commercial, Vijay Nagar, Plot No. B"
+            },
+            {
+              "field": "addressDetails.shippingAddress.shipToAddress",
+              "modelValue": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College, Rau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer Hospital, Rau Depo, INDORE, MADHYA PRADESH, 453331.",
+              "truthValue": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College Rau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer Hospital, Rau Depo, INDORE, MADHYA PRADESH, 453331."
+            },
+            {
+              "field": "transportDetails.loadingAddress",
+              "modelValue": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College, Rau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer Hospital, Rau Depo, INDORE, MADHYA PRADESH, 453331.",
+              "truthValue": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar"
+            }
+          ],
+          "accuracy": 51.61290322580645
+        }
+      }
+    },
+    "file_10.pdf": {
+      "sourceOfTruthHasError": false,
+      "modelComparisons": {
+        "gemini-2.0-flash-lite": {
+          "hasError": false,
+          "matchingFields": 14,
+          "totalFields": 31,
+          "missingFields": [
+            "vendorDetails.gstInternalAmount",
+            "invoiceDetails.tcsAmount",
+            "addressDetails.shippingAddress.shipToName",
+            "transportDetails.loadingAddress"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.address",
+              "modelValue": "1, D'Cruze Garden Lane, P.O. Mallickpara\nSerampore, Dist. Hooghly\nPIN Code 712203, West Bengal",
+              "truthValue": "1, D'Cruze Garden Lane, P.O. Mallickpara Serampore, Dist. Hooghly PIN Code 712203, West Bengal"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToAddress",
+              "modelValue": "4th floor, 8/1A Shri Manjari Building,\nSir William Jones Sarani, Kolkata, West Bengal 700071",
+              "truthValue": "4th floor, 8/1A Shri Manjari Building, Sir William Jones Sarani, Kolkata, West Bengal 700071"
+            },
+            {
+              "field": "addressDetails.shippingAddress.shipToAddress",
+              "modelValue": "Kolkata",
+              "truthValue": ""
+            },
+            {
+              "field": "productDetails.productName",
+              "modelValue": "Polypropylene",
+              "truthValue": "Polypropylene (39021000)"
+            },
+            {
+              "field": "IRN_Number",
+              "modelValue": "11febf9a75f9a3210d7f0c790a202ae05d21601d04d1690529-",
+              "truthValue": "11febf9a75f9a3210d7f0c790a202ae05d21601d04d1690529-20e9f463bf68bb"
+            }
+          ],
+          "accuracy": 45.16129032258064
+        },
+        "gemini-2.0-flash": {
+          "hasError": false,
+          "matchingFields": 15,
+          "totalFields": 31,
+          "missingFields": [
+            "invoiceDetails.tcsAmount"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.gstInternalAmount",
+              "modelValue": "1,02,060.00",
+              "truthValue": "2,04,120.00"
+            },
+            {
+              "field": "vendorDetails.address",
+              "modelValue": "1, D'Cruze Garden Lane, P.O. Mallickpara\nSerampore, Dist. Hooghly\nPIN Code 712203, West Bengal",
+              "truthValue": "1, D'Cruze Garden Lane, P.O. Mallickpara Serampore, Dist. Hooghly PIN Code 712203, West Bengal"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToAddress",
+              "modelValue": "4th floor, 8/1A Shri Manjari Building,\nSir William Jones Sarani, Kolkata, West Bengal 700071",
+              "truthValue": "4th floor, 8/1A Shri Manjari Building, Sir William Jones Sarani, Kolkata, West Bengal 700071"
+            },
+            {
+              "field": "addressDetails.shippingAddress.shipToName",
+              "modelValue": "Kolkata",
+              "truthValue": ""
+            },
+            {
+              "field": "addressDetails.shippingAddress.shipToAddress",
+              "modelValue": "Kolkata",
+              "truthValue": ""
+            },
+            {
+              "field": "productDetails.productName",
+              "modelValue": "Polypropylene",
+              "truthValue": "Polypropylene (39021000)"
+            },
+            {
+              "field": "IRN_Number",
+              "modelValue": "11febf9a75f9a3210d7f0c790a202ae05d21601d04d1690529-\n20e9f463bf68bb",
+              "truthValue": "11febf9a75f9a3210d7f0c790a202ae05d21601d04d1690529-20e9f463bf68bb"
+            }
+          ],
+          "accuracy": 48.38709677419355
+        },
+        "gemini-2.5-flash": {
+          "hasError": false,
+          "matchingFields": 21,
+          "totalFields": 31,
+          "missingFields": [],
+          "differentValues": [
+            {
+              "field": "vendorDetails.gstInternalAmount",
+              "modelValue": "11,34,000.00",
+              "truthValue": "2,04,120.00"
+            },
+            {
+              "field": "invoiceDetails.quantity",
+              "modelValue": "12,000.000 Kgs.",
+              "truthValue": "12,000.000"
+            }
+          ],
+          "accuracy": 67.74193548387096
+        }
+      }
+    },
+    "file_100.pdf": {
+      "sourceOfTruthHasError": false,
+      "modelComparisons": {
+        "gemini-2.0-flash-lite": {
+          "hasError": false,
+          "matchingFields": 15,
+          "totalFields": 31,
+          "missingFields": [
+            "addressDetails.shippingAddress.shipToName",
+            "addressDetails.shippingAddress.shipToAddress",
+            "transportDetails.vehicleNumber",
+            "transportDetails.loadingAddress"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.address",
+              "modelValue": "Survey No. 692A/3C, 1St Floor Duggal Plaza\nPrem Nagar, Bibwewadi\nPUNE, Maharashtra411037",
+              "truthValue": "Survey No. 692A/3C, 1St Floor Duggal Plaza Prem Nagar, Bibwewadi PUNE, Maharashtra411037"
+            },
+            {
+              "field": "invoiceDetails.invoiceNumber",
+              "modelValue": "SPCXMH2526-2172",
+              "truthValue": "MHCN/2526-129"
+            },
+            {
+              "field": "invoiceDetails.invoiceDate",
+              "modelValue": "20/08/2025",
+              "truthValue": "22/08/2025"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToAddress",
+              "modelValue": "New Survey No.2604, 378/1/3/Plot No.1, Premium Industrial Estate,\nNear Naroli Check Post, Naroli Check Post, Village Naroli\nDadra And Nagar Haveli\n396235 Dadra and Nagar Haveli and Daman and Diu",
+              "truthValue": "New Survey No.2604, 378/1/3/Plot No.1, Premium Industrial Estate, Near Naroli Check Post, Naroli Check Post, Village Naroli Dadra And Nagar Haveli 396235 Dadra and Nagar Haveli and Daman and Diu"
+            }
+          ],
+          "accuracy": 48.38709677419355
+        },
+        "gemini-2.0-flash": {
+          "hasError": false,
+          "matchingFields": 14,
+          "totalFields": 31,
+          "missingFields": [
+            "addressDetails.shippingAddress.shipToName",
+            "addressDetails.shippingAddress.shipToAddress",
+            "transportDetails.vehicleNumber",
+            "transportDetails.loadingAddress"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.gstAvailability",
+              "modelValue": "Yes",
+              "truthValue": "true"
+            },
+            {
+              "field": "vendorDetails.address",
+              "modelValue": "Survey No. 692A/3C, 1St Floor Duggal Plaza\nPrem Nagar, Bibwewadi\nPUNE, Maharashtra411037",
+              "truthValue": "Survey No. 692A/3C, 1St Floor Duggal Plaza Prem Nagar, Bibwewadi PUNE, Maharashtra411037"
+            },
+            {
+              "field": "invoiceDetails.invoiceNumber",
+              "modelValue": "SPCXMH2526-2172",
+              "truthValue": "MHCN/2526-129"
+            },
+            {
+              "field": "invoiceDetails.invoiceDate",
+              "modelValue": "20/08/2025",
+              "truthValue": "22/08/2025"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToAddress",
+              "modelValue": "New Survey No.2604, 378/1/3/Plot No.1, Premium Industrial Estate,\nNear Naroli Check Post, Naroli Check Post, Village Naroli\nDadra And Nagar Haveli\n396235 Dadra and Nagar Haveli and Daman and Diu",
+              "truthValue": "New Survey No.2604, 378/1/3/Plot No.1, Premium Industrial Estate, Near Naroli Check Post, Naroli Check Post, Village Naroli Dadra And Nagar Haveli 396235 Dadra and Nagar Haveli and Daman and Diu"
+            }
+          ],
+          "accuracy": 45.16129032258064
+        },
+        "gemini-2.5-flash": {
+          "hasError": false,
+          "matchingFields": 16,
+          "totalFields": 31,
+          "missingFields": [
+            "vendorDetails.gstInternalAmount",
+            "invoiceDetails.poNumber",
+            "invoiceDetails.tcsAmount"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.gstAvailability",
+              "modelValue": "Yes",
+              "truthValue": "true"
+            },
+            {
+              "field": "invoiceDetails.invoiceNumber",
+              "modelValue": "SPCXMH2526-2172",
+              "truthValue": "MHCN/2526-129"
+            },
+            {
+              "field": "invoiceDetails.invoiceDate",
+              "modelValue": "20/08/2025",
+              "truthValue": "22/08/2025"
+            },
+            {
+              "field": "invoiceDetails.quantity",
+              "modelValue": "9,900.000 KGS",
+              "truthValue": "9,900.000"
+            }
+          ],
+          "accuracy": 51.61290322580645
+        }
+      }
+    },
+    "file_11.pdf": {
+      "sourceOfTruthHasError": false,
+      "modelComparisons": {
+        "gemini-2.0-flash-lite": {
+          "hasError": false,
+          "matchingFields": 11,
+          "totalFields": 31,
+          "missingFields": [
+            "vendorDetails.gstAmount",
+            "vendorDetails.gstInternalAmount",
+            "invoiceDetails.poNumber",
+            "invoiceDetails.tcsAmount"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.gstAvailability",
+              "modelValue": "09AABCK5998F1Z2",
+              "truthValue": "Yes"
+            },
+            {
+              "field": "vendorDetails.gst",
+              "modelValue": "09ABACS7251D1ZF",
+              "truthValue": "09AABCK5998F1Z2"
+            },
+            {
+              "field": "vendorDetails.address",
+              "modelValue": "15/260-A-CIVIL LINES KANPUR",
+              "truthValue": "Regd. Office: 15/260-A-CIVIL LINES KANPUR"
+            },
+            {
+              "field": "buyerDetails.buyerName",
+              "modelValue": "M/s SPCX PRIVATE LIMITED-NOIDA",
+              "truthValue": "M/s SPCX PRIVATE LIMITED- NOIDA"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToName",
+              "modelValue": "M/s SPCX PRIVATE LIMITED-NOIDA",
+              "truthValue": "M/s SPCX PRIVATE LIMITED- NOIDA"
+            },
+            {
+              "field": "addressDetails.shippingAddress.shipToName",
+              "modelValue": "Ex-Godown",
+              "truthValue": "Ex-Godown Kanpur"
+            },
+            {
+              "field": "addressDetails.shippingAddress.shipToAddress",
+              "modelValue": "Kanpur",
+              "truthValue": "Ex-Godown Kanpur"
+            },
+            {
+              "field": "transportDetails.loadingAddress",
+              "modelValue": "Loading Point 622 Panki site No. 1. Panki-Kaupus-208022",
+              "truthValue": "Loading Point G22 Panki site No. 1. Panki-Kanpur-208022"
+            }
+          ],
+          "accuracy": 35.483870967741936
+        },
+        "gemini-2.0-flash": {
+          "hasError": false,
+          "matchingFields": 14,
+          "totalFields": 31,
+          "missingFields": [
+            "invoiceDetails.poNumber",
+            "invoiceDetails.tcsAmount",
+            "addressDetails.shippingAddress.shipToName"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.gstInternalAmount",
+              "modelValue": "240300.00",
+              "truthValue": "480600.00"
+            },
+            {
+              "field": "buyerDetails.buyerName",
+              "modelValue": "M/s SPCX PRIVATE LIMITED-NOIDA",
+              "truthValue": "M/s SPCX PRIVATE LIMITED- NOIDA"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToName",
+              "modelValue": "M/s SPCX PRIVATE LIMITED-NOIDA",
+              "truthValue": "M/s SPCX PRIVATE LIMITED- NOIDA"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToAddress",
+              "modelValue": "2nd Floor, Space / Unit No 34, Wave Silver\nTower, Plot No D-6, Noida, Gautambuddha\nNagar,\nGAUTAMBUDH NAGAR",
+              "truthValue": "2nd Floor, Space / Unit No 34, Wave Silver Tower, Plot No D-6, Noida, Gautambuddha Nagar, GAUTAMBUDH NAGAR"
+            },
+            {
+              "field": "addressDetails.shippingAddress.shipToAddress",
+              "modelValue": "Ex-Godown\nKanpur",
+              "truthValue": "Ex-Godown Kanpur"
+            },
+            {
+              "field": "transportDetails.loadingAddress",
+              "modelValue": "Loading Point G.22 Panki site No. 1\nPanki-Kaupus-208022",
+              "truthValue": "Loading Point G22 Panki site No. 1. Panki-Kanpur-208022"
+            }
+          ],
+          "accuracy": 45.16129032258064
+        },
+        "gemini-2.5-flash": {
+          "hasError": false,
+          "matchingFields": 17,
+          "totalFields": 31,
+          "missingFields": [
+            "vendorDetails.gstInternalAmount",
+            "addressDetails.shippingAddress.shipToName"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.address",
+              "modelValue": "15/260-A-CIVIL LINES KANPUR",
+              "truthValue": "Regd. Office: 15/260-A-CIVIL LINES KANPUR"
+            },
+            {
+              "field": "buyerDetails.buyerName",
+              "modelValue": "M/s SPCX PRIVATE LIMITED-NOIDA",
+              "truthValue": "M/s SPCX PRIVATE LIMITED- NOIDA"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToName",
+              "modelValue": "M/s SPCX PRIVATE LIMITED-NOIDA",
+              "truthValue": "M/s SPCX PRIVATE LIMITED- NOIDA"
+            },
+            {
+              "field": "transportDetails.loadingAddress",
+              "modelValue": "Loading Point G22 Panki site No. 1. Panki-Kaupus-208022",
+              "truthValue": "Loading Point G22 Panki site No. 1. Panki-Kanpur-208022"
+            }
+          ],
+          "accuracy": 54.83870967741935
+        }
+      }
+    },
+    "file_12.pdf": {
+      "sourceOfTruthHasError": false,
+      "modelComparisons": {
+        "gemini-2.0-flash-lite": {
+          "hasError": false,
+          "matchingFields": 14,
+          "totalFields": 31,
+          "missingFields": [
+            "vendorDetails.gstInternalAmount",
+            "invoiceDetails.poNumber",
+            "invoiceDetails.tcsAmount"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.address",
+              "modelValue": "OFFICE -60/52 NAYAGANJ KANPUR\nGODOWN 192-B, DADA NAGAR\nKANPUR NAGAR-208022",
+              "truthValue": "OFFICE -60/52 NAYAGANJ KANPUR GODOWN 192-B, DADA NAGAR KANPUR NAGAR-208022"
+            },
+            {
+              "field": "invoiceDetails.quantity",
+              "modelValue": "12,000.00 KG",
+              "truthValue": "12,000.00"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToAddress",
+              "modelValue": "2nd Floor, Space / Unit No 34, Wave Silver\nTower, Sector 18, Plot No D-6, Noida,\nGautambuddha Nagar, Uttar Pradesh,\n201301",
+              "truthValue": "2nd Floor, Space / Unit No 34, Wave Silver Tower, Sector 18, Plot No D-6, Noida, Gautambuddha Nagar, Uttar Pradesh, 201301"
+            },
+            {
+              "field": "addressDetails.shippingAddress.shipToAddress",
+              "modelValue": "EX-GODOWN",
+              "truthValue": "EX-GODOWN KANPUR Uttar Pradesh 208022"
+            },
+            {
+              "field": "transportDetails.loadingAddress",
+              "modelValue": "KANPUR",
+              "truthValue": "192 B DADA, NAGAR, KANPUR KANPUR Uttar Pradesh 208022"
+            },
+            {
+              "field": "IRN_Number",
+              "modelValue": "21a660feada474f799328bf6764647b32e23d0b68c3-",
+              "truthValue": "21a660feada474f799328bf6764647b32e23d0b68c3-d7611468b50ec5af8abaa"
+            }
+          ],
+          "accuracy": 45.16129032258064
+        },
+        "gemini-2.0-flash": {
+          "hasError": false,
+          "matchingFields": 15,
+          "totalFields": 31,
+          "missingFields": [
+            "invoiceDetails.poNumber",
+            "invoiceDetails.tcsAmount"
+          ],
+          "differentValues": [
+            {
+              "field": "vendorDetails.gstInternalAmount",
+              "modelValue": "96,930.00",
+              "truthValue": "1,93,860.00"
+            },
+            {
+              "field": "vendorDetails.address",
+              "modelValue": "OFFICE -60/52 NAYAGANJ KANPUR\nGODOWN 192-B, DADA NAGAR\nKANPUR NAGAR-208022\nUttar Pradesh",
+              "truthValue": "OFFICE -60/52 NAYAGANJ KANPUR GODOWN 192-B, DADA NAGAR KANPUR NAGAR-208022"
+            },
+            {
+              "field": "addressDetails.billingAddress.billToAddress",
+              "modelValue": "2nd Floor, Space / Unit No 34, Wave Silver\nTower, Sector 18, Plot No D-6, Noida,\nGautambuddha Nagar, Uttar Pradesh,\n201301",
+              "truthValue": "2nd Floor, Space / Unit No 34, Wave Silver Tower, Sector 18, Plot No D-6, Noida, Gautambuddha Nagar, Uttar Pradesh, 201301"
+            },
+            {
+              "field": "addressDetails.shippingAddress.shipToAddress",
+              "modelValue": "EX-GODOWN",
+              "truthValue": "EX-GODOWN KANPUR Uttar Pradesh 208022"
+            },
+            {
+              "field": "transportDetails.loadingAddress",
+              "modelValue": "KANPUR",
+              "truthValue": "192 B DADA, NAGAR, KANPUR KANPUR Uttar Pradesh 208022"
+            },
+            {
+              "field": "IRN_Number",
+              "modelValue": "21a660feada474f799328bf6764647b32e23d0b68c3-\nd7611468b50ec5af8abaa",
+              "truthValue": "21a660feada474f799328bf6764647b32e23d0b68c3-d7611468b50ec5af8abaa"
+            }
+          ],
+          "accuracy": 48.38709677419355
+        },
+        "gemini-2.5-flash": {
+          "hasError": false,
+          "matchingFields": 21,
+          "totalFields": 31,
+          "missingFields": [
+            "vendorDetails.gstInternalAmount"
+          ],
+          "differentValues": [
+            {
+              "field": "invoiceDetails.quantity",
+              "modelValue": "12,000.00 KG",
+              "truthValue": "12,000.00"
+            }
+          ],
+          "accuracy": 67.74193548387096
+        }
+      }
+    }
+  },
+  "summary": {
+    "totalFiles": 5,
+    "modelAccuracy": {
+      "gemini-2.0-flash-lite": {
+        "average": 44.52,
+        "count": 5,
+        "details": [
+          48.38709677419355,
+          45.16129032258064,
+          48.38709677419355,
+          35.483870967741936,
+          45.16129032258064
+        ]
+      },
+      "gemini-2.0-flash": {
+        "average": 47.1,
+        "count": 5,
+        "details": [
+          48.38709677419355,
+          48.38709677419355,
+          45.16129032258064,
+          45.16129032258064,
+          48.38709677419355
+        ]
+      },
+      "gemini-2.5-flash": {
+        "average": 58.71,
+        "count": 5,
+        "details": [
+          51.61290322580645,
+          67.74193548387096,
+          51.61290322580645,
+          54.83870967741935,
+          67.74193548387096
+        ]
+      }
+    },
+    "commonMissingFields": {},
+    "modelErrors": {
+      "gemini-2.0-flash-lite": 0,
+      "gemini-2.0-flash": 0,
+      "gemini-2.5-flash": 0
+    }
+  }
+}

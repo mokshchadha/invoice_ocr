@@ -20,7 +20,33 @@ const CONFIG = {
     'gemini-2.5-flash',       
     'gemini-2.5-pro'          
   ],
-  sourceOfTruthModel: 'gemini-2.5-pro'
+  sourceOfTruthModel: 'gemini-2.5-pro',
+  modelConfig: {
+    temperature: 0,
+    topP: 0.1,
+    topK: 1,
+    maxOutputTokens: 8192,
+    responseMimeType: 'application/json',
+    candidateCount: 1,
+    safetySettings: [
+      {
+        category: 'HARM_CATEGORY_HARASSMENT',
+        threshold: 'BLOCK_NONE'
+      },
+      {
+        category: 'HARM_CATEGORY_HATE_SPEECH',
+        threshold: 'BLOCK_NONE'
+      },
+      {
+        category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
+        threshold: 'BLOCK_NONE'
+      },
+      {
+        category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
+        threshold: 'BLOCK_NONE'
+      }
+    ]
+  }
 };
 
 // Initialize AI with correct constructor pattern
@@ -73,8 +99,6 @@ NOTE: If the image is blurry or some information is missing then leave that part
 
 class AIAdapter {
   constructor(apiKey) {
-    // Remove this line as ai is now initialized globally
-    // this.genAI = new GoogleGenAI(apiKey);
   }
 
   async askAI(filePath, modelName, prompt) {
@@ -82,8 +106,6 @@ class AIAdapter {
       console.log(`Processing ${path.basename(filePath)} with ${modelName}...`);
       
       const fileBuffer = await fs.readFile(filePath);
-      
-      // Alternative approach - create the parts array separately
       const imagePart = {
         inlineData: {
           data: fileBuffer.toString('base64'),
@@ -95,7 +117,8 @@ class AIAdapter {
       
       const response = await ai.models.generateContent({
         model: modelName,
-        contents: [textPart, imagePart]
+        contents: [textPart, imagePart],
+        config: CONFIG.modelConfig
       });
       
       const text = response.text;
