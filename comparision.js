@@ -183,6 +183,24 @@ class FileUtils {
 }
 
 class ResultComparator {
+  static normalizeString(value) {
+    if (typeof value !== 'string') {
+      return value;
+    }
+    return value.toLowerCase().replace(/[\s\n\t]+/g, ' ').trim();
+  }
+
+  static valuesMatch(value1, value2) {
+    if (value1 == null && value2 == null) return true;
+    if (value1 == null || value2 == null) return false;
+    
+    if (typeof value1 === 'string' || typeof value2 === 'string') {
+      return this.normalizeString(value1) === this.normalizeString(value2);
+    }
+    
+    return value1 === value2;
+  }
+
   static compareResults(results, sourceOfTruth) {
     const comparison = {
       sourceOfTruth: sourceOfTruth,
@@ -265,7 +283,8 @@ class ResultComparator {
           comparison.missingFields.push(fullKey);
         }
       } else {
-        if (obj1[key] === obj2[key]) {
+        // Use the new normalized comparison
+        if (this.valuesMatch(obj1[key], obj2[key])) {
           comparison.matchingFields++;
         } else if (obj1[key] === undefined || obj1[key] === null || obj1[key] === '') {
           comparison.missingFields.push(fullKey);
@@ -273,7 +292,9 @@ class ResultComparator {
           comparison.differentValues.push({
             field: fullKey,
             modelValue: obj1[key],
-            truthValue: obj2[key]
+            truthValue: obj2[key],
+            normalizedModelValue: this.normalizeString(obj1[key]),
+            normalizedTruthValue: this.normalizeString(obj2[key])
           });
         }
       }
@@ -367,24 +388,26 @@ class InvoiceProcessor {
     console.log(`Results saved in: ${CONFIG.outputFolder}`);
   }
 
-  async generateSummaryReport(comparison) {
-    let report = `# Invoice Processing Model Comparison Report\n\n`;
-    report += `**Generated:** ${new Date().toISOString()}\n`;
-    report += `**Source of Truth Model:** ${comparison.sourceOfTruth}\n`;
-    report += `**Total Files Processed:** ${comparison.summary.totalFiles}\n\n`;
+async generateSummaryReport(comparison) {
+  const report = `# Invoice Processing Model Comparison Report
 
-    report += `## Model Performance Summary\n\n`;
-    
-    for (const [model, accuracy] of Object.entries(comparison.summary.modelAccuracy)) {
-      report += `### ${model}\n`;
-      report += `- **Average Accuracy:** ${accuracy.average}%\n`;
-      report += `- **Files Successfully Processed:** ${accuracy.count}\n`;
-      report += `- **Errors:** ${comparison.summary.modelErrors[model]}\n\n`;
-    }
+**Generated:** ${new Date().toISOString()}
+**Source of Truth Model:** ${comparison.sourceOfTruth}
+**Total Files Processed:** ${comparison.summary.totalFiles}
 
-    const reportPath = path.join(CONFIG.outputFolder, 'summary_report.md');
-    await FileUtils.saveResults(reportPath, report);
-  }
+## Model Performance Summary
+
+${Object.entries(comparison.summary.modelAccuracy).map(([model, accuracy]) => 
+`### ${model}
+- **Average Accuracy:** ${accuracy.average}%
+- **Files Successfully Processed:** ${accuracy.count}
+- **Errors:** ${comparison.summary.modelErrors[model]}
+
+`).join('')}`;
+
+  const reportPath = path.join(CONFIG.outputFolder, 'summary_report.md');
+  await FileUtils.saveResults(reportPath, report);
+}
 
   delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

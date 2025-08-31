@@ -87,7 +87,7 @@
         "vendorName": "Signet Industries Ltd. Pithampur",
         "gstAvailability": "Yes",
         "gstAmount": "1,78,200.00",
-        "gstInternalAmount": "89,100.00",
+        "gstInternalAmount": "",
         "gst": "23AABCS3489F2ZD",
         "address": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar, Madhya Pradesh, Code: 23"
       },
@@ -110,7 +110,7 @@
           "billToAddress": "2nd Floor, Scheme No. PU-4, Commercial, Vijay Nagar, Plot No. B, Indore, Madhya Pradesh, Code: 23"
         },
         "shippingAddress": {
-          "shipToName": "",
+          "shipToName": "SPCX PRIVATE LIMITED - INDORE",
           "shipToAddress": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College, Rau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer Hospital, Rau Depo, INDORE, MADHYA PRADESH, 453331."
         }
       },
@@ -128,7 +128,7 @@
         "vendorName": "Signet Industries Ltd. Pithampur",
         "gstAvailability": "Yes",
         "gstAmount": "1,78,200.00",
-        "gstInternalAmount": "178200.00",
+        "gstInternalAmount": "1,78,200.00",
         "gst": "23AABCS3489F2ZD",
         "address": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar"
       },
@@ -151,13 +151,13 @@
           "billToAddress": "2nd Floor, Scheme No. PU-4 Commercial, Vijay Nagar, Plot No. B"
         },
         "shippingAddress": {
-          "shipToName": "SPCX PRIVATE LIMITED - INDORE",
-          "shipToAddress": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College Rau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer Hospital, Rau Depo, INDORE, MADHYA PRADESH, 453331."
+          "shipToName": "",
+          "shipToAddress": ""
         }
       },
       "transportDetails": {
         "vehicleNumber": "MP09GE9708",
-        "loadingAddress": "Plot No.462 to 465, 476 to 478, Sector No. 3, Industrial Area, Pithampur Dist Dhar"
+        "loadingAddress": "Ex-Godown, Plot No. 14/2/3 & 14/2/4, Lila Estate, Near Sanghvi College Rau Railways Bridge, Rau Pithampur Bypass, Pigdambar, Opposite Rau Cancer Hospital, Rau Depo, INDORE, MADHYA PRADESH, 453331."
       },
       "productDetails": {
         "productName": "HDPE \"010DP45\""
@@ -203,7 +203,7 @@
         "loadingAddress": null
       },
       "productDetails": {
-        "productName": "Polypropylene"
+        "productName": "Polypropylene (39021000)"
       },
       "IRN_Number": "11febf9a75f9a3210d7f0c790a202ae05d21601d04d1690529-"
     },
@@ -253,7 +253,7 @@
         "vendorName": "Servo Plastics Private Limited",
         "gstAvailability": "Yes",
         "gstAmount": "2,04,120.00",
-        "gstInternalAmount": "11,34,000.00",
+        "gstInternalAmount": "1,02,060.00",
         "gst": "19AANCS3318K1ZW",
         "address": "1, D'Cruze Garden Lane, P.O. Mallickpara Serampore, Dist. Hooghly PIN Code 712203, West Bengal"
       },
@@ -458,9 +458,9 @@
     "gemini-2.5-pro": {
       "vendorDetails": {
         "vendorName": "SPCX PVT LTD",
-        "gstAvailability": "true",
+        "gstAvailability": "yes",
         "gstAmount": "1,50,400.80",
-        "gstInternalAmount": null,
+        "gstInternalAmount": "1,50,400.80",
         "gst": "27ABACS7251D1ZH",
         "address": "Survey No. 692A/3C, 1St Floor Duggal Plaza Prem Nagar, Bibwewadi PUNE, Maharashtra411037"
       },
@@ -471,9 +471,9 @@
       "invoiceDetails": {
         "invoiceNumber": "MHCN/2526-129",
         "invoiceDate": "22/08/2025",
-        "poNumber": null,
+        "poNumber": "",
         "totalAmount": "9,85,961.00",
-        "tcsAmount": null,
+        "tcsAmount": "",
         "quantity": "9,900.000",
         "rate": "84.40"
       },
@@ -483,8 +483,8 @@
           "billToAddress": "New Survey No.2604, 378/1/3/Plot No.1, Premium Industrial Estate, Near Naroli Check Post, Naroli Check Post, Village Naroli Dadra And Nagar Haveli 396235 Dadra and Nagar Haveli and Daman and Diu"
         },
         "shippingAddress": {
-          "shipToName": "",
-          "shipToAddress": ""
+          "shipToName": "GURUKRUPA PET PROFILES LLP",
+          "shipToAddress": "New Survey No.2604, 378/1/3/Plot No.1, Premium Industrial Estate, Near Naroli Check Post, Naroli Check Post, Village Naroli Dadra And Nagar Haveli 396235 Dadra and Nagar Haveli and Daman and Diu"
         }
       },
       "transportDetails": {
@@ -504,7 +504,7 @@
         "gstAvailability": "09AABCK5998F1Z2",
         "gstAmount": null,
         "gstInternalAmount": null,
-        "gst": "09ABACS7251D1ZF",
+        "gst": null,
         "address": "15/260-A-CIVIL LINES KANPUR"
       },
       "buyerDetails": {
@@ -573,7 +573,7 @@
       },
       "transportDetails": {
         "vehicleNumber": "UP95T3667",
-        "loadingAddress": "Loading Point G.22 Panki site No. 1\nPanki-Kaupus-208022"
+        "loadingAddress": "Loading Point 622 Panki site No. 1.\nPanki-Kaupus-208022"
       },
       "productDetails": {
         "productName": "LLDPE-T"
@@ -628,7 +628,7 @@
         "gstAmount": "480600.00",
         "gstInternalAmount": "480600.00",
         "gst": "09AABCK5998F1Z2",
-        "address": "Regd. Office: 15/260-A-CIVIL LINES KANPUR"
+        "address": "Regd. Office: 15/260-A-CIVIL LINES KANPUR Factory: GATA NO.657, PAMA ROAD, RANIA, TEHSIL: AKBARPUR, KANPUR DEHAT"
       },
       "buyerDetails": {
         "buyerName": "M/s SPCX PRIVATE LIMITED- NOIDA",
@@ -803,7 +803,7 @@
       "invoiceDetails": {
         "invoiceNumber": "P-3641/25-26",
         "invoiceDate": "26-Aug-25",
-        "poNumber": "",
+        "poNumber": "2330/25-26(RTGS)",
         "totalAmount": "12,70,860.00",
         "tcsAmount": "",
         "quantity": "12,000.00",
