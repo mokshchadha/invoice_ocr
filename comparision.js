@@ -1,11 +1,3 @@
-// Using Node.js built-in --env-file support (run with: node --env-file=.env script.js)
-// Or keep dotenv for compatibility: require('dotenv').config();
-
-// Debug: Check if environment variables are loaded
-console.log('Environment variables check:');
-console.log('GEMINI_API_KEY:', process.env.GEMINI_API_KEY ? 'Found' : 'Not found');
-console.log('All env vars:', Object.keys(process.env).filter(key => key.includes('GEMINI')));
-
 const fs = require('fs').promises;
 const path = require('path');
 const { GoogleGenAI } = require('@google/genai');
@@ -13,7 +5,7 @@ const { GoogleGenAI } = require('@google/genai');
 const CONFIG = {
   inputFolder: './invoices',
   outputFolder: './results',
-  apiKey: process.env.GEMINI_API_KEY, // Changed from GOOGLE_AI_API_KEY
+  apiKey: process.env.GEMINI_API_KEY, 
   models: [
     'gemini-2.0-flash-lite',  
     'gemini-2.0-flash', 
