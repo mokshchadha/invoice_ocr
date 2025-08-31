@@ -167,3 +167,7 @@ aldeberan/
 .streamlit
 
 myenv
+
+node_modules/*
+
+invoices/*
