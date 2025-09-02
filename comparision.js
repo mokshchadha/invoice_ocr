@@ -193,6 +193,58 @@ class ResultComparator {
     return value1 === value2;
   }
 
+
+  static shouldExcludeField(fieldPath) {
+    const excludedPaths = [
+      'addressDetails',
+      'addressDetails.billingAddress',
+      'addressDetails.billingAddress.billToName',
+      'addressDetails.billingAddress.billToAddress',
+      'addressDetails.shippingAddress',
+      'addressDetails.shippingAddress.shipToName',
+      'addressDetails.shippingAddress.shipToAddress',
+      'vendorDetails.address',
+      'transportDetails.loadingAddress'
+    ];
+    
+    return excludedPaths.some(excluded => 
+      fieldPath === excluded || fieldPath.startsWith(excluded + '.')
+    );
+  }
+
+
+  static filterAddressDetails(obj) {
+    if (!obj || typeof obj !== 'object') return obj;
+    
+    const filtered = {};
+    
+    for (const [key, value] of Object.entries(obj)) {
+      if (key === 'addressDetails') {
+        continue;
+      } else if (key === 'vendorDetails' && value && typeof value === 'object') {
+        filtered[key] = {};
+        for (const [vendorKey, vendorValue] of Object.entries(value)) {
+          if (vendorKey !== 'address') {
+            filtered[key][vendorKey] = vendorValue;
+          }
+        }
+      } else if (key === 'transportDetails' && value && typeof value === 'object') {
+        filtered[key] = {};
+        for (const [transportKey, transportValue] of Object.entries(value)) {
+          if (transportKey !== 'loadingAddress') {
+            filtered[key][transportKey] = transportValue;
+          }
+        }
+      } else if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        filtered[key] = this.filterAddressDetails(value);
+      } else {
+        filtered[key] = value;
+      }
+    }
+    
+    return filtered;
+  }
+
   static compareResults(results, sourceOfTruth) {
     const comparison = {
       sourceOfTruth: sourceOfTruth,
@@ -202,7 +254,8 @@ class ResultComparator {
         modelAccuracy: {},
         commonMissingFields: {},
         modelErrors: {}
-      }
+      },
+      note: "Address details are excluded from this comparison"
     };
 
     for (const [fileName, fileResults] of Object.entries(results)) {
@@ -246,7 +299,8 @@ class ResultComparator {
       totalFields: 0,
       missingFields: [],
       differentValues: [],
-      accuracy: 0
+      accuracy: 0,
+      note: "Address details excluded from comparison"
     };
 
     if (modelResult?.error) {
@@ -254,7 +308,10 @@ class ResultComparator {
       return comparison;
     }
 
-    this.deepCompare(modelResult, truthResult, comparison, '');
+    const filteredModelResult = this.filterAddressDetails(modelResult);
+    const filteredTruthResult = this.filterAddressDetails(truthResult);
+
+    this.deepCompare(filteredModelResult, filteredTruthResult, comparison, '');
 
     if (comparison.totalFields > 0) {
       comparison.accuracy = (comparison.matchingFields / comparison.totalFields) * 100;
@@ -266,6 +323,10 @@ class ResultComparator {
   static deepCompare(obj1, obj2, comparison, prefix) {
     for (const key in obj2) {
       const fullKey = prefix ? `${prefix}.${key}` : key;
+      if (this.shouldExcludeField(fullKey)) {
+        continue;
+      }
+      
       comparison.totalFields++;
 
       if (typeof obj2[key] === 'object' && obj2[key] !== null && !Array.isArray(obj2[key])) {
@@ -275,7 +336,6 @@ class ResultComparator {
           comparison.missingFields.push(fullKey);
         }
       } else {
-        // Use the new normalized comparison
         if (this.valuesMatch(obj1[key], obj2[key])) {
           comparison.matchingFields++;
         } else if (obj1[key] === undefined || obj1[key] === null || obj1[key] === '') {
@@ -332,7 +392,6 @@ class ResultComparator {
     }
   }
 }
-
 class InvoiceProcessor {
   constructor() {
     this.aiAdapter = new AIAdapter(CONFIG.apiKey);
@@ -353,7 +412,7 @@ class InvoiceProcessor {
 
     console.log(`Found ${pdfFiles.length} PDF files to process.`);
 
-    for (const filePath of pdfFiles.slice(0, 5)) {
+    for (const filePath of pdfFiles) {
       const fileName = path.basename(filePath);
       console.log(`\n--- Processing ${fileName} ---`);
       
