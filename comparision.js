@@ -45,47 +45,25 @@ const CONFIG = {
 const ai = new GoogleGenAI({ apiKey: CONFIG.apiKey });
 
 const EXTRACTION_PROMPT = `I want you to process the document with high accuracy to generate the following fields and return a json document with filled information 
-{
-  "vendorDetails": {
-    "vendorName": "",
-    "gstAvailability": "",
-    "gstAmount": "",
-    "gstInternalAmount": "",
-    "gst": "",
-    "address": ""
-  },
-  "buyerDetails": {
-    "buyerName": "",
-    "buyerGst": ""
-  },
-  "invoiceDetails": {
-    "invoiceNumber": "",
-    "invoiceDate": "",
-    "poNumber": "",
-    "totalAmount": "",
-    "tcsAmount": "",
-    "quantity": "",
-    "rate": ""
-  },
-  "addressDetails": {
-    "billingAddress": {
-      "billToName": "",
-      "billToAddress": ""
-    },
-    "shippingAddress": {
-      "shipToName": "",
-      "shipToAddress": ""
-    }
-  },
-  "transportDetails": {
-    "vehicleNumber": "",
-    "loadingAddress": ""
-  },
-  "productDetails": {
-    "productName": ""
-  },
-  "IRN_Number": ""
+  {
+  "IRN_Number": "Unique Invoice Reference Number generated after e-invoice is pushed to IRP.",
+  "invoice_date": "Date on which invoice is created. should be today or yesterday.",
+  "supplier_gst": "GST identification number of the supplier.",
+  "supplier_name": "Supplier entity name involved in the order.",
+  "buyer_gst": "GST identification number of the buyer. Should start from SPCX",
+  "buyer_name": "Buyer entity to whom material is sold. Should be company name 'SPCX PVT LTD'.",
+  "buyer_billing_address": "Billing address of the buyer, GST address of SPCX godown locations. ",
+  "ship_to_address": "Shipping address on invoice should be loading address of the supplier ",
+  "delivery_terms": "Delivery terms specification, typically 'EX GODOWN'.",
+  "vehicle_number": "Vehicle number for the order. Stored in internal database.",
+  "grade_number": "Product grade number extracted from product .",
+  "hsn_number": "Mandatory 6-digit HSN code with starting 4 digits match requirement.",
+  "supplier_price": "Supplier price calculated as SP + SCN (Supplier Price + Supply Chain Network).",
+  "quantity": "a number field quantity in KG",
+  "total_amount": "Total calculated amount stored as amount field.",
+  "invoice_number": "Supplier nomenclature of the invoice."
 }
+
 
 NOTE: If the image is blurry or some information is missing then leave that part as empty string and highlight what parts are missing and why. Return only valid JSON format.`;
 
@@ -176,11 +154,41 @@ class FileUtils {
 
 class ResultComparator {
   static normalizeString(value) {
-    if (typeof value !== 'string') {
-      return value;
-    }
-    return value.toLowerCase().replace(/[\s\n\t]+/g, ' ').trim();
+  if (typeof value !== 'string') {
+    return value;
   }
+  
+  let normalized = value
+    .replace(/Α/g, 'A')  // Greek Alpha to Latin A
+    .replace(/α/g, 'a')  // Greek alpha to Latin a
+    .replace(/Ι/g, 'I')  // Greek Iota to Latin I
+    .replace(/ι/g, 'i')  // Greek iota to Latin i
+    .replace(/Ο/g, 'O')  // Greek Omicron to Latin O
+    .replace(/ο/g, 'o')  // Greek omicron to Latin o
+    .replace(/Ε/g, 'E')  // Greek Epsilon to Latin E
+    .replace(/ε/g, 'e')  // Greek epsilon to Latin e
+    .replace(/Η/g, 'H')  // Greek Eta to Latin H
+    .replace(/η/g, 'h')  // Greek eta to Latin h
+    .replace(/Κ/g, 'K')  // Greek Kappa to Latin K
+    .replace(/κ/g, 'k')  // Greek kappa to Latin k
+    .replace(/Μ/g, 'M')  // Greek Mu to Latin M
+    .replace(/μ/g, 'm')  // Greek mu to Latin m
+    .replace(/Ν/g, 'N')  // Greek Nu to Latin N
+    .replace(/ν/g, 'n')  // Greek nu to Latin n
+    .replace(/Ρ/g, 'R')  // Greek Rho to Latin R
+    .replace(/ρ/g, 'r')  // Greek rho to Latin r
+    .replace(/Τ/g, 'T')  // Greek Tau to Latin T
+    .replace(/τ/g, 't')  // Greek tau to Latin t
+    .replace(/Υ/g, 'Y')  // Greek Upsilon to Latin Y
+    .replace(/υ/g, 'y')  // Greek upsilon to Latin y
+    .replace(/Χ/g, 'X')  // Greek Chi to Latin X
+    .replace(/χ/g, 'x')  // Greek chi to Latin x
+    .replace(/Ζ/g, 'Z')  // Greek Zeta to Latin Z
+    .replace(/ζ/g, 'z'); // Greek zeta to Latin z
+  
+  // Convert to lowercase and remove all non-alphanumeric characters
+  return normalized.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
 
   static valuesMatch(value1, value2) {
     if (value1 == null && value2 == null) return true;
@@ -195,22 +203,25 @@ class ResultComparator {
 
 
   static shouldExcludeField(fieldPath) {
-    const excludedPaths = [
-      'addressDetails',
-      'addressDetails.billingAddress',
-      'addressDetails.billingAddress.billToName',
-      'addressDetails.billingAddress.billToAddress',
-      'addressDetails.shippingAddress',
-      'addressDetails.shippingAddress.shipToName',
-      'addressDetails.shippingAddress.shipToAddress',
-      'vendorDetails.address',
-      'transportDetails.loadingAddress'
-    ];
-    
-    return excludedPaths.some(excluded => 
-      fieldPath === excluded || fieldPath.startsWith(excluded + '.')
-    );
-  }
+  const excludedPaths = [
+    'addressDetails',
+    'addressDetails.billingAddress',
+    'addressDetails.billingAddress.billToName',
+    'addressDetails.billingAddress.billToAddress',
+    'addressDetails.shippingAddress',
+    'addressDetails.shippingAddress.shipToName',
+    'addressDetails.shippingAddress.shipToAddress',
+    'vendorDetails.address',
+    'transportDetails.loadingAddress',
+    // Add GST fields to exclusion list
+    'vendorDetails.gstInternalAmount',
+    'vendorDetails.gstAmount'
+  ];
+  
+  return excludedPaths.some(excluded => 
+    fieldPath === excluded || fieldPath.startsWith(excluded + '.')
+  );
+}
 
 
   static filterAddressDetails(obj) {
